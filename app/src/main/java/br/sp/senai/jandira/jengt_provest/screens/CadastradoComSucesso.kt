@@ -63,7 +63,7 @@ fun registeredSuccessfully(navigationController: NavHostController) {
 
             Column(){
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { navigationController.navigate("StudentProfile") },
                     modifier = Modifier
                         .size(width = 260.dp, height = 52.dp)
                         .padding(top = 12.dp),
@@ -81,7 +81,7 @@ fun registeredSuccessfully(navigationController: NavHostController) {
                 }
 
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { navigationController.navigate("Home") },
                     modifier = Modifier
                         .size(width = 260.dp, height = 52.dp)
                         .padding(top = 12.dp),

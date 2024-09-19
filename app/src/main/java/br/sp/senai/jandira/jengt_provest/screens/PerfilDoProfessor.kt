@@ -56,20 +56,20 @@ fun teacherProfile(navigationController: NavHostController) {
             )
         }
 
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            Row (
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 100.dp, start = 40.dp)
-            ){
-                Card (
+            ) {
+                Card(
                     modifier = Modifier
                         .size(150.dp),
                     shape = RoundedCornerShape(100.dp)
-                ){
+                ) {
                     Icon(
                         modifier = Modifier.fillMaxSize(),
                         imageVector = Icons.Default.AccountCircle,
@@ -87,13 +87,13 @@ fun teacherProfile(navigationController: NavHostController) {
                 )
             }
 
-            Column (
+            Column(
                 modifier = Modifier
                     .size(400.dp)
                     .padding(start = 30.dp, end = 30.dp),
                 verticalArrangement = Arrangement.SpaceAround
 
-            ){
+            ) {
                 TextField(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -177,7 +177,8 @@ fun teacherProfile(navigationController: NavHostController) {
         }
 
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
                 .padding(top = 700.dp)
         ) {
             Box(
@@ -185,13 +186,11 @@ fun teacherProfile(navigationController: NavHostController) {
                     .fillMaxWidth()
                     .background(
                         color = Color(0xff201F4B),
-                        shape = RoundedCornerShape( topEnd = 14.dp, topStart = 14.dp)
+                        shape = RoundedCornerShape(topEnd = 14.dp, topStart = 14.dp)
                     )
                     .height(90.dp)
             )
         }
-
-
 
 
     }

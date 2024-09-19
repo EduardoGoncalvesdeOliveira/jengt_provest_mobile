@@ -18,6 +18,8 @@ import br.sp.senai.jandira.jengt_provest.screens.home
 import br.sp.senai.jandira.jengt_provest.screens.loginStudents
 import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
+import br.sp.senai.jandira.jengt_provest.screens.signUpStudent
+import br.sp.senai.jandira.jengt_provest.screens.signUpTeacher
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,24 +32,24 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val controlNavigation = rememberNavController()
-                    NavHost(navController = controlNavigation, startDestination = "greetings") {
+                    NavHost(navController = controlNavigation, startDestination = "Initial") {
 
                         composable(route = "Initial") { Initial(controlNavigation) }
 
-                        composable(route = "SignUpTeacher") { loginTeachers(controlNavigation) }
+                        composable(route = "SignUpTeacher") { signUpTeacher(controlNavigation) }
                         composable(route = "LoginTeacher") { loginTeachers(controlNavigation) }
 
-                        composable(route = "SignUpStudent") { loginStudents(controlNavigation) }
+                        composable(route = "SignUpStudent") { signUpStudent(controlNavigation) }
                         composable(route = "LoginStudent") { loginStudents(controlNavigation) }
 
                         composable(route = "ForgotPassword") { forgotPassword(controlNavigation) }
 
 
-                        composable(route = "registeredSuccessfully") { registeredSuccessfully(controlNavigation) }
+                        composable(route = "RegisteredSuccessfully") { registeredSuccessfully(controlNavigation) }
 
 
-                        composable(route = "teacherProfile") { teacherProfile(controlNavigation) }
-                        composable(route = "studentProfile") { teacherProfile(controlNavigation) }
+                        composable(route = "TeacherProfile") { teacherProfile(controlNavigation) }
+                        composable(route = "StudentProfile") { teacherProfile(controlNavigation) }
 
                         composable(route = "Home") { home(controlNavigation) }
 

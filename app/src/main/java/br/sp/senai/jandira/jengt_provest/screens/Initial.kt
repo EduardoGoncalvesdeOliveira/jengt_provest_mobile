@@ -23,6 +23,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -60,8 +63,12 @@ fun Initial(navigationController: NavHostController) {
                     Text(
                         text = "ProVest",
                         color = Color(0xffDEFEA0),
-                        fontSize = 60.sp
+                        fontSize = 62.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontStyle = FontStyle.Italic,
+                        fontWeight = FontWeight.Thin
                     )
+
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Image(
@@ -97,7 +104,7 @@ fun Initial(navigationController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { navigationController.navigate("SignUpStudent") },
                         modifier = Modifier
                             .size(height = 70.dp, width = 250.dp)
                             .padding(vertical = 12.dp),
@@ -112,7 +119,7 @@ fun Initial(navigationController: NavHostController) {
                     }
 
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { navigationController.navigate("SignUpTeacher") },
                         modifier = Modifier
                             .size(height = 70.dp, width = 250.dp)
                             .padding(vertical = 12.dp),

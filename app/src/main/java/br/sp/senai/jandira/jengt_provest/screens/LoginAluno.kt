@@ -2,6 +2,7 @@ package br.sp.senai.jandira.jengt_provest.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -126,17 +128,28 @@ fun loginStudents(controlNavigation: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
+                var emailState = remember {
+                    mutableStateOf("")
+                }
+
                 OutlinedTextField(
                     modifier = Modifier
-                        .size(width = 350.dp, height = 46.dp),
-                    value = "",
-                    onValueChange = {},
+                        .fillMaxWidth(),
+                    value = emailState.value,
+                    onValueChange = {
+                        emailState.value = it
+                    },
                     maxLines = 1,
                     shape = RoundedCornerShape(50.dp),
-                    label = { Text(text = "Login") },
+                    label = {
+                        Text(
+                            text = "Email",
+                            fontSize = 16.sp
+                        )
+                    },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.AccountCircle,
+                            imageVector = Icons.Filled.Email,
                             contentDescription = "testeLogin",
                             tint = Color(0xffBCB3DF)
                         )
@@ -148,14 +161,25 @@ fun loginStudents(controlNavigation: NavHostController) {
                     ),
                 )
 
+                var passwordState = remember {
+                    mutableStateOf("")
+                }
+
                 OutlinedTextField(
                     modifier = Modifier
-                        .size(width = 350.dp, height = 46.dp),
-                    value = "",
-                    onValueChange = {},
+                        .fillMaxWidth(),
+                    value = passwordState.value,
+                    onValueChange = {
+                        passwordState.value = it
+                    },
                     maxLines = 1,
                     shape = RoundedCornerShape(50.dp),
-                    label = { Text(text = "Senha") },
+                    label = {
+                        Text(
+                            text = "Password",
+                            fontSize = 16.sp
+                        )
+                    },
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Lock,
@@ -178,8 +202,22 @@ fun loginStudents(controlNavigation: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
+                    var mensagemErro = remember {
+                        mutableStateOf("")
+                    }
+
+                    Text(text = mensagemErro.value, color = Color.Red)
+
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            if (emailState.value == "qwe" && passwordState.value == "123") {
+                                mensagemErro.value = ""
+                                controlNavigation.navigate("Home")
+                            } else {
+                                mensagemErro.value = "Usuário ou Senha incorreta"
+                            }
+
+                        },
                         modifier = Modifier
                             .size(width = 260.dp, height = 52.dp)
                             .padding(top = 12.dp),
@@ -196,7 +234,9 @@ fun loginStudents(controlNavigation: NavHostController) {
                         )
                     }
 
-                    Text(
+                    Text(modifier = Modifier
+                        .padding(top = 8.dp)
+                        .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
                         text = "Esqueceu a senha?",
                         fontSize = 14.sp,
                         fontFamily = FontFamily.Default,
@@ -259,12 +299,13 @@ fun loginStudents(controlNavigation: NavHostController) {
                             fontStyle = FontStyle.Italic,
                             color = Color.Black
                         )
-                        Text(
+                        Text(modifier = Modifier
+                            .clickable { controlNavigation.navigate("SignUpTeacher") },
                             text = "Criar conta", fontSize = 14.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Italic,
-                            color = Color.Black
+                            color = Color(0xff0A8365)
                         )
                     }
                 }

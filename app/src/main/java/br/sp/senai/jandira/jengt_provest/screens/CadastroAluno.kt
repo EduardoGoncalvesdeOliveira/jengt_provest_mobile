@@ -15,10 +15,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Accessibility
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -45,7 +47,7 @@ import androidx.navigation.compose.rememberNavController
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @Composable
-fun loginTeachers(controlNavigation: NavHostController) {
+fun signUpStudent(controlNavigation: NavHostController) {
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -91,18 +93,12 @@ fun loginTeachers(controlNavigation: NavHostController) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Bem Vindo Professor!".toUpperCase(),
+                    text = "Bem Vindo Aluno!".toUpperCase(),
                     fontSize = 22.sp,
                     fontFamily = FontFamily.Default,
                     fontWeight = FontWeight.Normal
                 )
             }
-
-            Spacer(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(42.dp)
-            )
 
             Row(
                 modifier = Modifier
@@ -111,7 +107,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Login",
+                    text = "Cadastro",
                     fontSize = 44.sp,
                     fontFamily = FontFamily.SansSerif,
                     fontStyle = FontStyle.Normal,
@@ -128,6 +124,39 @@ fun loginTeachers(controlNavigation: NavHostController) {
                 verticalArrangement = Arrangement.SpaceEvenly,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+                var nameState = remember {
+                    mutableStateOf("")
+                }
+
+                OutlinedTextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    value = nameState.value,
+                    onValueChange = {
+                        nameState.value = it
+                    },
+                    maxLines = 1,
+                    shape = RoundedCornerShape(50.dp),
+                    label = {
+                        Text(
+                            text = "Nome Completo",
+                            fontSize = 16.sp
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.Person,
+                            contentDescription = "testeLogin",
+                            tint = Color(0xffBCB3DF)
+                        )
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = Color(0xffBCB3DF),
+                        focusedLabelColor = Color(0xffBCB3DF),
+                        focusedBorderColor = Color(0xffBCB3DF)
+                    ),
+                )
 
                 var emailState = remember {
                     mutableStateOf("")
@@ -177,7 +206,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
                     shape = RoundedCornerShape(50.dp),
                     label = {
                         Text(
-                            text = "Password",
+                            text = "Senha",
                             fontSize = 16.sp
                         )
                     },
@@ -195,10 +224,42 @@ fun loginTeachers(controlNavigation: NavHostController) {
                     ),
                 )
 
+                var phoneState = remember {
+                    mutableStateOf("")
+                }
+
+                OutlinedTextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    value = phoneState.value,
+                    onValueChange = {
+                        phoneState.value = it
+                    },
+                    maxLines = 1,
+                    shape = RoundedCornerShape(50.dp),
+                    label = {
+                        Text(
+                            text = "Phone",
+                            fontSize = 16.sp
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.Phone,
+                            contentDescription = "testeLogin",
+                            tint = Color(0xffBCB3DF)
+                        )
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = Color(0xffBCB3DF),
+                        focusedLabelColor = Color(0xffBCB3DF),
+                        focusedBorderColor = Color(0xffBCB3DF)
+                    ),
+                )
+
                 Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 12.dp),
+                        .fillMaxWidth(),
                     verticalArrangement = Arrangement.SpaceAround,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -211,7 +272,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
 
                     Button(
                         onClick = {
-                            if (emailState.value == "qwe" && passwordState.value == "123") {
+                            if (emailState.value == "qwe") {
                                 mensagemErro.value = ""
                                 controlNavigation.navigate("RegisteredSuccessfully")
                             } else {
@@ -226,8 +287,8 @@ fun loginTeachers(controlNavigation: NavHostController) {
                         border = BorderStroke(1.dp, Color(0xffBCB3DF))
                     ) {
                         Text(
-                            text = "Login".toUpperCase(),
-                            fontSize = 20.sp,
+                            text = "Cadastrar".toUpperCase(),
+                            fontSize = 18.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Normal,
@@ -235,9 +296,9 @@ fun loginTeachers(controlNavigation: NavHostController) {
                         )
                     }
 
-                    Text(modifier = Modifier
-                        .padding(top = 8.dp)
-                        .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
+                    Text(
+                        modifier = Modifier
+                            .clickable { controlNavigation.navigate("ForgotPassword") },
                         text = "Esqueceu a senha?",
                         fontSize = 14.sp,
                         fontFamily = FontFamily.Default,
@@ -248,8 +309,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
 
                     Row(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp),
+                            .fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -294,15 +354,16 @@ fun loginTeachers(controlNavigation: NavHostController) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "Não possui cadastro?", fontSize = 14.sp,
+                            text = "Já possui cadastro?", fontSize = 14.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Italic,
                             color = Color.Black
                         )
-                        Text(modifier = Modifier
-                            .clickable { controlNavigation.navigate("SignUpTeacher") },
-                            text = "Criar conta", fontSize = 14.sp,
+                        Text(
+                            modifier = Modifier
+                                .clickable { controlNavigation.navigate("LoginTeacher") },
+                            text = "Faça Login", fontSize = 20.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Italic,
@@ -318,8 +379,8 @@ fun loginTeachers(controlNavigation: NavHostController) {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun loginTeachersPreview() {
+fun signUpStudentPreview() {
     JENGTProVestTheme {
-        loginTeachers(controlNavigation = rememberNavController())
+        signUpStudent(controlNavigation = rememberNavController())
     }
 }
