@@ -16,7 +16,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.CollectionsBookmark
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Iso
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
@@ -246,13 +249,46 @@ fun signUpStudent(controlNavigation: NavHostController) {
                     shape = RoundedCornerShape(50.dp),
                     label = {
                         Text(
-                            text = "Phone",
+                            text = "Course",
                             fontSize = 16.sp
                         )
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.Phone,
+                            imageVector = Icons.Filled.Book,
+                            contentDescription = "testeLogin",
+                            tint = Color(0xffBCB3DF)
+                        )
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = Color(0xffBCB3DF),
+                        focusedLabelColor = Color(0xffBCB3DF),
+                        focusedBorderColor = Color(0xffBCB3DF)
+                    ),
+                )
+
+                var iconState = remember {
+                    mutableStateOf("")
+                }
+
+                OutlinedTextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    value = iconState.value,
+                    onValueChange = {
+                        iconState.value = it
+                    },
+                    maxLines = 1,
+                    shape = RoundedCornerShape(50.dp),
+                    label = {
+                        Text(
+                            text = "Icon",
+                            fontSize = 16.sp
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.Iso,
                             contentDescription = "testeLogin",
                             tint = Color(0xffBCB3DF)
                         )
@@ -295,11 +331,14 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                             val aluno = Aluno(
 
-                                name = nameState.toString(),
-                                email = emailState.toString(),
-                                senha = passwordState.toString(),
-                                curso = 2
+                                nome = nameState.value,
+                                email = emailState.value,
+                                senha = passwordState.value,
+                                curso = 2,
+                                icon = 1
                             )
+
+                            Log.d("ohiuwrgvu", "khgvgkwgkvw ${aluno}")
 
                             coroutineScope.launch {
                                 alunoService.postAluno(aluno).enqueue(object : Callback<Aluno> {
@@ -310,14 +349,17 @@ fun signUpStudent(controlNavigation: NavHostController) {
                                         if (response.isSuccessful) {
                                             Toast.makeText(
                                                 context,
-                                                "Psicólogo cadastrado com sucesso!",
+                                                "Aluno cadastrado com sucesso!",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             controlNavigation.navigate("RegisteredSuccessfully")
                                         } else {
+
+//                                            Log.d("ohiuwrgvu", "khgvgkwgkvw ${aluno}")
+
                                             Toast.makeText(
                                                 context,
-                                                "Erro ao cadastrar psicólogo: ${response.code()}",
+                                                "Erro ao cadastrar aluno: ${response.code()}",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             Log.e(

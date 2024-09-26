@@ -4,10 +4,9 @@ import androidx.compose.runtime.MutableState
 
 data class Aluno(
     val id: Int= 0,
-    val name: String= "",
+    val nome: String= "",
     val email: String= "",
     val senha: String= "",
-    val curso: Int = 2,
-    val gender: String= "",
-    val status: Int= 1
+    val curso: Int,
+    val icon: Int
 )
