@@ -13,10 +13,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.senai.jandira.sp.screens.teacherProfile
 import br.sp.senai.jandira.jengt_provest.screens.Initial
+import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 import br.sp.senai.jandira.jengt_provest.screens.forgotPassword
 import br.sp.senai.jandira.jengt_provest.screens.home
 import br.sp.senai.jandira.jengt_provest.screens.loginStudents
 import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
+import br.sp.senai.jandira.jengt_provest.screens.redacao
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
 import br.sp.senai.jandira.jengt_provest.screens.signUpStudent
 import br.sp.senai.jandira.jengt_provest.screens.signUpTeacher
@@ -32,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val controlNavigation = rememberNavController()
-                    NavHost(navController = controlNavigation, startDestination = "Initial") {
+                    NavHost(navController = controlNavigation, startDestination = "EscolhaTemaRedacao") {
 
                         composable(route = "Initial") { Initial(controlNavigation) }
 
@@ -52,6 +54,10 @@ class MainActivity : ComponentActivity() {
                         composable(route = "StudentProfile") { teacherProfile(controlNavigation) }
 
                         composable(route = "Home") { home(controlNavigation) }
+
+                        composable(route = "Redacao") { redacao(controlNavigation) }
+
+                        composable(route = "EscolhaTemaRedacao") { escolhaTemaRedacao(controlNavigation) }
 
                     }
                 }

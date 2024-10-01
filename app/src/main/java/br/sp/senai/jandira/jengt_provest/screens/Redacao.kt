@@ -23,29 +23,38 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
+import java.time.format.TextStyle
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun redacao(controlNavigation: NavHostController) {
     Surface(
@@ -62,7 +71,7 @@ fun redacao(controlNavigation: NavHostController) {
                     .fillMaxWidth()
                     .background(
                         color = Color(0xff201F4B),
-                        shape = RoundedCornerShape(bottomStart = 38.dp, bottomEnd = 38.dp)
+                        shape = RoundedCornerShape(bottomStart = 25.dp, bottomEnd = 25.dp)
                     )
                     .height(125.dp)
             )
@@ -95,7 +104,7 @@ fun redacao(controlNavigation: NavHostController) {
             ) {
                 Text(
                     text = "Tema escolhido:",
-                    fontSize = 22.sp,
+                    fontSize = 18.sp,
                     fontFamily = FontFamily.Default,
                     fontWeight = FontWeight.Normal
                 )
@@ -113,16 +122,31 @@ fun redacao(controlNavigation: NavHostController) {
                     .padding(horizontal = 32.dp),
                 horizontalArrangement = Arrangement.Start
             ) {
-                Card (modifier = Modifier
-                    .fillMaxWidth(),
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xffffffff)  // Define a cor de fundo do Card
+                    ),
                     border = BorderStroke(width = 4.dp, Color(0xffD4A4E2))
-                ){
-                    Text(modifier = Modifier
-                        .padding(6.dp),
-                        text = "Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil.",
-                        fontSize = 14.sp,
-                        fontFamily = FontFamily.Default,
-                        fontWeight = FontWeight.Bold) }
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .padding(horizontal = 14.dp, vertical = 4.dp),
+                            text = "Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil.",
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily.Default,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+
+                }
             }
 
             Column(
@@ -130,191 +154,56 @@ fun redacao(controlNavigation: NavHostController) {
                     .fillMaxSize()
                     .padding(horizontal = 24.dp)
                     .padding(top = 12.dp),
-                verticalArrangement = Arrangement.SpaceEvenly,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                var emailState = remember {
-                    mutableStateOf("")
-                }
+                var title by remember { mutableStateOf("") }
 
-                OutlinedTextField(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    value = emailState.value,
-                    onValueChange = {
-                        emailState.value = it
-                    },
-                    maxLines = 1,
-                    shape = RoundedCornerShape(50.dp),
-                    label = {
-                        Text(
-                            text = "Email",
-                            fontSize = 16.sp
-                        )
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Filled.Email,
-                            contentDescription = "testeLogin",
-                            tint = Color(0xffBCB3DF)
-                        )
-                    },
-                    colors = OutlinedTextFieldDefaults.colors(
-                        unfocusedBorderColor = Color(0xffBCB3DF),
-                        focusedLabelColor = Color(0xffBCB3DF),
-                        focusedBorderColor = Color(0xffBCB3DF)
+                TextField(
+                    value = title,
+                    onValueChange = { title = it },  // Atualiza o estado do texto
+                    label = {},
+                    placeholder = { Text("Título:") },  // Placeholder quando o campo está vazio
+                    modifier = Modifier.fillMaxWidth(),  // O TextField ocupa toda a largura disponível
+                            colors = TextFieldDefaults.textFieldColors(
+                            containerColor = Color(0xfff7f6f6),  // Fundo transparente
+                    focusedIndicatorColor = Color.Transparent,  // Borda ao focar
+                    unfocusedIndicatorColor = Color.Transparent  // Borda quando não focado
+                ),
+                    textStyle = androidx.compose.ui.text.TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
                     ),
+
+                    shape = RoundedCornerShape(
+                        topEnd = 8.dp, // Não arredonda o canto inferior direito
+                        topStart = 8.dp  // Arredonda bastante o canto inferior esquerdo
+                    ),
+
                 )
 
-                var passwordState = remember {
-                    mutableStateOf("")
-                }
 
-                OutlinedTextField(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    value = passwordState.value,
-                    onValueChange = {
-                        passwordState.value = it
-                    },
-                    maxLines = 1,
-                    shape = RoundedCornerShape(50.dp),
-                    label = {
-                        Text(
-                            text = "Password",
-                            fontSize = 16.sp
-                        )
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Filled.Lock,
-                            contentDescription = "testeLogin",
-                            tint = Color(0xffBCB3DF)
-                        )
-                    },
-                    colors = OutlinedTextFieldDefaults.colors(
-                        unfocusedBorderColor = Color(0xffBCB3DF),
-                        focusedLabelColor = Color(0xffBCB3DF),
-                        focusedBorderColor = Color(0xffBCB3DF)
-                    ),
-                )
+                var text by remember { mutableStateOf("") }
 
-                Column(
+                TextField(
+                    value = text,
+                    onValueChange = {text = it},
+                    label = {},
+                    placeholder = { Text("Escreva seu texto aqui") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 12.dp),
-                    verticalArrangement = Arrangement.SpaceAround,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-
-                    var mensagemErro = remember {
-                        mutableStateOf("")
-                    }
-
-                    Text(text = mensagemErro.value, color = Color.Red)
-
-                    Button(
-                        onClick = {
-                            if (emailState.value == "qwe" && passwordState.value == "123") {
-                                mensagemErro.value = ""
-                                controlNavigation.navigate("Home")
-                            } else {
-                                mensagemErro.value = "Usuário ou Senha incorreta"
-                            }
-
-                        },
-                        modifier = Modifier
-                            .size(width = 260.dp, height = 52.dp)
-                            .padding(top = 12.dp),
-                        colors = ButtonDefaults.buttonColors(Color(0xffBCB3DF)),
-                        border = BorderStroke(1.dp, Color(0xffBCB3DF))
-                    ) {
-                        Text(
-                            text = "Login".toUpperCase(),
-                            fontSize = 20.sp,
-                            fontFamily = FontFamily.Default,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Normal,
-                            color = Color(0xFF000000)
-                        )
-                    }
-
-                    Text(modifier = Modifier
-                        .padding(top = 8.dp)
-                        .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
-                        text = "Esqueceu a senha?",
-                        fontSize = 14.sp,
-                        fontFamily = FontFamily.Default,
-                        fontWeight = FontWeight.Normal,
-                        fontStyle = FontStyle.Italic,
-                        color = Color.Gray
+                        .height(1000.dp),  // Aumenta a altura do TextField
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = Color(0xfff7f6f6),
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent
+                    ),
+                    shape = RoundedCornerShape(
+                        bottomEnd = 8.dp, // Não arredonda o canto inferior direito
+                        bottomStart = 8.dp  // Arredonda bastante o canto inferior esquerdo
                     )
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-                        var overState = remember {
-                            mutableStateOf(false)
-                        }
-
-                        Checkbox(
-                            checked = overState.value,
-                            onCheckedChange = {
-                                overState.value = it
-                            },
-                            colors = CheckboxDefaults.colors(
-                                checkedColor = Color(0xffBCB3DF),
-                                uncheckedColor = Color(0xffBCB3DF)
-                            )
-                        )
-
-                        Text(
-                            text = "Lembrar de mim",
-                            fontSize = 14.sp,
-                            fontFamily = FontFamily.Default,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Italic,
-                            color = Color.Gray
-                        )
-
-
-                    }
-
-                    Box(
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth()
-                            .background(Color(0xff0A8365))
-                    )
-
-                    Column(
-                        modifier = Modifier
-                            .padding(top = 12.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "Não possui cadastro?", fontSize = 14.sp,
-                            fontFamily = FontFamily.Default,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Italic,
-                            color = Color.Black
-                        )
-                        Text(modifier = Modifier
-                            .clickable { controlNavigation.navigate("SignUpTeacher") },
-                            text = "Criar conta", fontSize = 14.sp,
-                            fontFamily = FontFamily.Default,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Italic,
-                            color = Color(0xff0A8365)
-                        )
-                    }
-                }
+                )
             }
         }
     }
