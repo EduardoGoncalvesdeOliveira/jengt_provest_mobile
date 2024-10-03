@@ -17,12 +17,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Iso
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
@@ -104,7 +108,7 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                     Text(
                         text = "Redações".toUpperCase(),
                         color = Color(0xffDEFEA0),
-                        fontSize = 26.sp,
+                        fontSize = 32.sp,
                         fontFamily = FontFamily.SansSerif,
                         fontStyle = FontStyle.Normal,
                         fontWeight = FontWeight.Normal
@@ -123,7 +127,16 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                         .padding(14.dp)
                 ) {
 
-                    val options = listOf("Opção 1", "Opção 2", "Opção 3")
+                    val options = listOf(
+                        "impacto das mudanças climáticas na vida das populações urbanas e rurais.",
+                        "Desafios para a valorização do trabalho e a geração de emprego no Brasil",
+                        "Os impactos das redes sociais nas relações interpessoais e na saúde mental.",
+                        "A educação integral para o desenvolvimento de habilidades socioemocionais e cognitivas",
+                        "A importância da preservação ambiental para a qualidade de vida das presentes e futuras gerações",
+                        "Manipulação do comportamento do usuário pelo controle de dados na internet",
+                        "Desafios para a formação educacional de surdos no Brasil.",
+                        "Caminhos para combater a intolerância religiosa no Brasil."
+                    )
 
                     // Variável para armazenar a opção selecionada
                     var selectedOption by remember { mutableStateOf("") }
@@ -136,21 +149,27 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                         expanded = expanded,
                         onExpandedChange = { expanded = !expanded }
                     ) {
+
+                        var isBlocked by remember { mutableStateOf(false) }
+
                         TextField(
                             value = selectedOption,
+                            enabled = isBlocked,
                             onValueChange = { selectedOption = it },  // Atualiza o estado do texto
                             label = {
                                 Row(
                                     modifier = Modifier
-                                        .fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween) {
+                                        .fillMaxWidth()
+                                        .menuAnchor(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
                                     Text("Escolha um tema")
 
                                     Icon(
                                         modifier = Modifier
                                             .size(width = 30.dp, height = 25.dp),
-                                        imageVector = Icons.Filled.ArrowDropDown,
-                                        contentDescription = "testeLogin",
+                                        imageVector = Icons.Filled.KeyboardArrowDown,
+                                        contentDescription = "teste",
                                         tint = Color(0xffD4A4E2)
                                     )
 
@@ -182,21 +201,110 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
 
                             )
 
-
                         // Menu dropdown com as opções
                         DropdownMenu(
+                            modifier = Modifier
+                                .background(Color.White)
+                                .width(386.dp)
+                                .border(
+                                    width = 2.dp, // Largura da borda
+                                    color = Color(0xffD4A4E2), // Cor da borda
+                                    shape = RoundedCornerShape(8.dp)
+                                ), // Formato arredondado da borda,
                             expanded = expanded,
                             onDismissRequest = { expanded = false }
                         ) {
+
                             options.forEach { option ->
-                                DropdownMenuItem(
-                                    text = { Text(option) },
+                                DropdownMenuItem(modifier = Modifier
+                                    .padding(horizontal = 16.dp, vertical = 2.dp)
+                                    .background(Color(0xff201F4B))
+                                    .border(
+                                        width = 2.dp, // Largura da borda
+                                        color = Color(0xff201F4B), // Cor da borda
+                                        shape = RoundedCornerShape(10.dp)
+                                    ),
+                                    text = {
+                                        Text(
+                                            modifier = Modifier
+                                                .fillMaxSize()
+                                                .background(Color(0xff201F4B))
+                                                .border(
+                                                    width = 0.dp, // Largura da borda
+                                                    color = Color(0xff201F4B), // Cor da borda
+                                                    shape = RoundedCornerShape(0.dp)
+                                                ), color = Color.White, text = option
+                                        )
+                                    },
                                     onClick = {
                                         selectedOption = option
                                         expanded = false
                                     }
                                 )
                             }
+                        }
+                    }
+
+                    Card (
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(vertical = 40.dp),
+                        shape = RoundedCornerShape(10.dp), // Define o arredondamento das bordas do Card
+                        colors = CardDefaults.cardColors(containerColor = Color(0xfff7f7f7)) // Define a cor de fundo do Card
+                    ){
+
+                        Column (
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(vertical = 20.dp, horizontal = 22.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.SpaceEvenly){
+
+                            Text(
+                                text = "O que fazer na sua redação?",
+                                fontSize = 22.sp,
+                                fontFamily = FontFamily.SansSerif,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Bold,
+                            )
+
+                            Text(
+                                modifier = Modifier
+                                    .padding(vertical = 10.dp),
+                                text = "Tenha sua redação avaliada segundo os critérios de correção do Enem (Exame Nacional do Ensino Médio), o maior exame vestibular do Brasil. A nota da redação, variando entre 0 (zero) e 1000 (mil) pontos, é atribuída com base em 5 competências (200 pontos por competência):",
+                                textAlign = TextAlign.Center,
+                                fontSize = 14.sp,
+                                fontFamily = FontFamily.SansSerif,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Normal
+
+                            )
+
+                            Text(
+                                modifier = Modifier
+                                    .padding(vertical = 10.dp),
+                                text = "C1 Domínio da escrita formal da língua portuguesa.\n" +
+                                        "C2 Compreender o tema e não fugir do que é proposto.\n" +
+                                        "C3 Selecionar, relacionar, organizar e interpretar informações, fatos, opiniões e argumentos em defesa de um ponto de vista.\n" +
+                                        "C4 Conhecimento dos mecanismos linguísticos necessários para a construção da argumentação.\n" +
+                                        "C5 Proposta de intervenção e respeito aos direitos humanos.",
+                                textAlign = TextAlign.Start,
+                                fontSize = 14.sp,
+                                fontFamily = FontFamily.SansSerif,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Normal
+                            )
+
+                            Text(modifier = Modifier
+                                .fillMaxWidth(),
+                                text = "Boa Redação!",
+                                textAlign = TextAlign.End,
+                                fontSize = 14.sp,
+                                fontFamily = FontFamily.SansSerif,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Normal
+                            )
+
                         }
                     }
 

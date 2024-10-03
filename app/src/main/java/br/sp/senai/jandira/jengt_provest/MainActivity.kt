@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val controlNavigation = rememberNavController()
-                    NavHost(navController = controlNavigation, startDestination = "EscolhaTemaRedacao") {
+                    NavHost(navController = controlNavigation, startDestination = "Redacao") {
 
                         composable(route = "Initial") { Initial(controlNavigation) }
 
