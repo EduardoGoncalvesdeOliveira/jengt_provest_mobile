@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.rickandmortyapi.service
 
+import br.sp.senai.jandira.jengt_provest.service.TemaRedacaoService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,4 +18,7 @@ class RetrofitFactory {
         return retrofitFactory.create(AlunoService::class.java)
     }
 
+    fun getTemaRedacaoService(): TemaRedacaoService {
+        return retrofitFactory.create(TemaRedacaoService::class.java)
+    }
 }
