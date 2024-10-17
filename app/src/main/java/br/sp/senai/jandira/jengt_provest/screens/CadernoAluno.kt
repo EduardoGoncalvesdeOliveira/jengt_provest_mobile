@@ -265,7 +265,7 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                         TextField(
                             value = text,
                             onValueChange = { text = it },
-                            label = { Text("Se texto aqui") },
+                            label = { Text("Seu texto aqui") },
                             placeholder = {  },
                             modifier = Modifier
                                 .fillMaxWidth()

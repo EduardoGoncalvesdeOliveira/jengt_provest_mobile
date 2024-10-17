@@ -19,6 +19,7 @@ import br.sp.senai.jandira.jengt_provest.screens.forgotPassword
 import br.sp.senai.jandira.jengt_provest.screens.home
 import br.sp.senai.jandira.jengt_provest.screens.loginStudents
 import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
+import br.sp.senai.jandira.jengt_provest.screens.notFound
 import br.sp.senai.jandira.jengt_provest.screens.redacao
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
 import br.sp.senai.jandira.jengt_provest.screens.signUpStudent
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val controlNavigation = rememberNavController()
-                    NavHost(navController = controlNavigation, startDestination = "CadernoDoAluno") {
+                    NavHost(navController = controlNavigation, startDestination = "Home") {
 
                         composable(route = "Initial") { Initial(controlNavigation) }
 
@@ -64,6 +65,8 @@ class MainActivity : ComponentActivity() {
                         composable(route = "VideoAula") { videoAula(controlNavigation) }
 
 //                        composable(route = "EscolhaTemaRedacao") { escolhaTemaRedacao(controlNavigation) }
+
+                        composable(route = "NotFound") { notFound(controlNavigation) }
 
                     }
                 }

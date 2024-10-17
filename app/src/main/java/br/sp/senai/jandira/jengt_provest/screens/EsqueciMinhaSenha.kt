@@ -40,13 +40,14 @@ fun forgotPassword(navigationController: NavHostController) {
             .fillMaxSize()
     ) {
         Column (modifier = Modifier
+            .background(Color(0xffffffff1))
             .fillMaxSize()) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
                         color = Color(0xff201F4B),
-                        shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
+                        shape = RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp)
                     )
                     .height(182.dp)
             )
@@ -64,7 +65,7 @@ fun forgotPassword(navigationController: NavHostController) {
                         fontSize = 62.sp,
                         fontFamily = FontFamily.SansSerif,
                         fontStyle = FontStyle.Italic,
-                        fontWeight = FontWeight.Thin
+                        fontWeight = FontWeight.Light
                     )
                 }
             }
@@ -80,7 +81,7 @@ fun forgotPassword(navigationController: NavHostController) {
                     color = Color(0xff000000),
                     fontSize = 24.sp,
                     fontFamily = FontFamily.SansSerif,
-                    fontStyle = FontStyle.Italic,
+                    fontStyle = FontStyle.Normal,
                     fontWeight = FontWeight.Normal
                 )
             }
@@ -100,22 +101,23 @@ fun forgotPassword(navigationController: NavHostController) {
 
                         Text(
                             modifier = Modifier
-                                .padding(start = 12.dp, bottom = 6.dp),
+                                .padding(start = 12.dp, bottom = 2.dp),
                             text = "Email",
                             color = Color(0xff000000),
                             fontSize = 16.sp,
                             fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Italic,
+                            fontStyle = FontStyle.Normal,
                             fontWeight = FontWeight.Normal
                         )
 
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(50.dp),
+                                .height(40.dp),
                             value = "",
                             onValueChange = {},
-                            shape = RoundedCornerShape(20.dp),
+                            maxLines = 1,
+                            shape = RoundedCornerShape(18.dp),
                             colors = OutlinedTextFieldDefaults.colors(
                                 unfocusedBorderColor = Color(0xffBCB3DF),
                                 focusedLabelColor = Color(0xffBCB3DF),
@@ -129,22 +131,23 @@ fun forgotPassword(navigationController: NavHostController) {
 
                         Text(
                             modifier = Modifier
-                                .padding(start = 12.dp, bottom = 6.dp),
+                                .padding(start = 12.dp, bottom = 2.dp),
                             text = "Confirme o email",
                             color = Color(0xff000000),
                             fontSize = 16.sp,
                             fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Italic,
+                            fontStyle = FontStyle.Normal,
                             fontWeight = FontWeight.Normal
                         )
 
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(50.dp),
+                                .height(40.dp),
                             value = "",
                             onValueChange = {},
-                            shape = RoundedCornerShape(20.dp),
+                            maxLines = 1,
+                            shape = RoundedCornerShape(18.dp),
                             colors = OutlinedTextFieldDefaults.colors(
                                 unfocusedBorderColor = Color(0xffBCB3DF),
                                 focusedLabelColor = Color(0xffBCB3DF),
@@ -158,22 +161,23 @@ fun forgotPassword(navigationController: NavHostController) {
 
                         Text(
                             modifier = Modifier
-                                .padding(start = 12.dp, bottom = 6.dp),
+                                .padding(start = 12.dp, bottom = 2.dp),
                             text = "Nova senha",
                             color = Color(0xff000000),
                             fontSize = 16.sp,
                             fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Italic,
+                            fontStyle = FontStyle.Normal,
                             fontWeight = FontWeight.Normal
                         )
 
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(50.dp),
+                                .height(40.dp),
                             value = "",
                             onValueChange = {},
-                            shape = RoundedCornerShape(20.dp),
+                            maxLines = 1,
+                            shape = RoundedCornerShape(18.dp),
                             colors = OutlinedTextFieldDefaults.colors(
                                 unfocusedBorderColor = Color(0xffBCB3DF),
                                 focusedLabelColor = Color(0xffBCB3DF),
@@ -187,22 +191,23 @@ fun forgotPassword(navigationController: NavHostController) {
 
                         Text(
                             modifier = Modifier
-                                .padding(start = 12.dp, bottom = 6.dp),
+                                .padding(start = 12.dp, bottom = 2.dp),
                             text = "Confirme a senha",
                             color = Color(0xff000000),
                             fontSize = 16.sp,
                             fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Italic,
+                            fontStyle = FontStyle.Normal,
                             fontWeight = FontWeight.Normal
                         )
 
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(50.dp),
+                                .height(40.dp),
                             value = "",
                             onValueChange = {},
-                            shape = RoundedCornerShape(20.dp),
+                            maxLines = 1,
+                            shape = RoundedCornerShape(18.dp),
                             colors = OutlinedTextFieldDefaults.colors(
                                 unfocusedBorderColor = Color(0xffBCB3DF),
                                 focusedLabelColor = Color(0xffBCB3DF),
@@ -213,15 +218,6 @@ fun forgotPassword(navigationController: NavHostController) {
 
                     Spacer(modifier = Modifier.height(100.dp))
 
-                    Row (
-                        modifier = Modifier
-                    ){
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "botao de voltar",
-                            tint = Color(0xFF000000)
-                        )
-                    }
 
                 }
 
