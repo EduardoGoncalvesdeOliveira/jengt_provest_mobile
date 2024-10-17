@@ -233,9 +233,10 @@ fun loginStudents(controlNavigation: NavHostController) {
                         )
                     }
 
-                    Text(modifier = Modifier
-                        .padding(top = 8.dp)
-                        .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
+                    Text(
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
                         text = "Esqueceu a senha?",
                         fontSize = 14.sp,
                         fontFamily = FontFamily.Default,
@@ -298,8 +299,9 @@ fun loginStudents(controlNavigation: NavHostController) {
                             fontStyle = FontStyle.Italic,
                             color = Color.Black
                         )
-                        Text(modifier = Modifier
-                            .clickable { controlNavigation.navigate("SignUpTeacher") },
+                        Text(
+                            modifier = Modifier
+                                .clickable { controlNavigation.navigate("SignUpTeacher") },
                             text = "Criar conta", fontSize = 14.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,

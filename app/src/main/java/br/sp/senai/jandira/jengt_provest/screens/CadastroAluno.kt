@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -72,7 +73,7 @@ fun signUpStudent(controlNavigation: NavHostController) {
                         color = Color(0xff201F4B),
                         shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
                     )
-                    .height(182.dp)
+                    .height(150.dp)
             )
             {
                 Column(
@@ -96,7 +97,7 @@ fun signUpStudent(controlNavigation: NavHostController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(68.dp),
+                    .height(70.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
@@ -108,6 +109,10 @@ fun signUpStudent(controlNavigation: NavHostController) {
                 )
             }
 
+            Spacer(modifier = Modifier
+                .fillMaxWidth()
+                .height(0.dp))
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -115,7 +120,7 @@ fun signUpStudent(controlNavigation: NavHostController) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Cadastro",
+                    text = "Sign Up",
                     fontSize = 44.sp,
                     fontFamily = FontFamily.SansSerif,
                     fontStyle = FontStyle.Normal,
@@ -139,7 +144,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = nameState.value,
                     onValueChange = {
                         nameState.value = it
@@ -172,7 +178,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = emailState.value,
                     onValueChange = {
                         emailState.value = it
@@ -205,7 +212,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = passwordState.value,
                     onValueChange = {
                         passwordState.value = it
@@ -238,8 +246,9 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    value = courseState.value,
+                        .fillMaxWidth()
+                    .height(44.dp),
+                value = courseState.value,
                     onValueChange = {
                         courseState.value = it
                     },
@@ -271,8 +280,9 @@ fun signUpStudent(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    value = iconState.value,
+                        .fillMaxWidth()
+                    .height(44.dp),
+                value = iconState.value,
                     onValueChange = {
                         iconState.value = it
                     },
@@ -382,8 +392,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
                         },
 
                         modifier = Modifier
-                            .size(width = 260.dp, height = 52.dp)
-                            .padding(top = 12.dp),
+                            .size(width = 260.dp, height = 40.dp)
+                            .padding(top = 0.dp),
                         colors = ButtonDefaults.buttonColors(Color(0xffBCB3DF)),
                         border = BorderStroke(1.dp, Color(0xffBCB3DF))
                     ) {

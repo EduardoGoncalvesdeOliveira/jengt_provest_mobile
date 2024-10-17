@@ -150,11 +150,11 @@ fun redacao(controlNavigation: NavHostController) {
                     label = {},
                     placeholder = { Text("Título:") },  // Placeholder quando o campo está vazio
                     modifier = Modifier.fillMaxWidth(),  // O TextField ocupa toda a largura disponível
-                            colors = TextFieldDefaults.textFieldColors(
-                            containerColor = Color(0xfff7f6f6),  // Fundo transparente
-                    focusedIndicatorColor = Color.Transparent,  // Borda ao focar
-                    unfocusedIndicatorColor = Color.Transparent  // Borda quando não focado
-                ),
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = Color(0xfff7f6f6),  // Fundo transparente
+                        focusedIndicatorColor = Color.Transparent,  // Borda ao focar
+                        unfocusedIndicatorColor = Color.Transparent  // Borda quando não focado
+                    ),
                     textStyle = androidx.compose.ui.text.TextStyle(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
@@ -166,14 +166,14 @@ fun redacao(controlNavigation: NavHostController) {
                         topStart = 8.dp  // Arredonda bastante o canto inferior esquerdo
                     ),
 
-                )
+                    )
 
 
                 var text by remember { mutableStateOf("") }
 
                 TextField(
                     value = text,
-                    onValueChange = {text = it},
+                    onValueChange = { text = it },
                     label = {},
                     placeholder = { Text("Escreva seu texto aqui") },
                     modifier = Modifier

@@ -196,7 +196,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 12.dp),
+                        .padding(top = 6.dp),
                     verticalArrangement = Arrangement.SpaceAround,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -215,11 +215,10 @@ fun loginTeachers(controlNavigation: NavHostController) {
                             } else {
                                 mensagemErro.value = "Usuário ou Senha incorreta"
                             }
-
                         },
                         modifier = Modifier
                             .size(width = 260.dp, height = 52.dp)
-                            .padding(top = 12.dp),
+                            .padding(top = 6.dp),
                         colors = ButtonDefaults.buttonColors(Color(0xffBCB3DF)),
                         border = BorderStroke(1.dp, Color(0xffBCB3DF))
                     ) {
@@ -233,9 +232,10 @@ fun loginTeachers(controlNavigation: NavHostController) {
                         )
                     }
 
-                    Text(modifier = Modifier
-                        .padding(top = 8.dp)
-                        .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
+                    Text(
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .clickable { controlNavigation.navigate("RegisteredSuccessfully") },
                         text = "Esqueceu a senha?",
                         fontSize = 14.sp,
                         fontFamily = FontFamily.Default,
@@ -298,8 +298,9 @@ fun loginTeachers(controlNavigation: NavHostController) {
                             fontStyle = FontStyle.Italic,
                             color = Color.Black
                         )
-                        Text(modifier = Modifier
-                            .clickable { controlNavigation.navigate("SignUpTeacher") },
+                        Text(
+                            modifier = Modifier
+                                .clickable { controlNavigation.navigate("SignUpTeacher") },
                             text = "Criar conta", fontSize = 14.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,

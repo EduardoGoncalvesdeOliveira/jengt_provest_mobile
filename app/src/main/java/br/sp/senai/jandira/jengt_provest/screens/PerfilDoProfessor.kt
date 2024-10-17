@@ -138,7 +138,8 @@ fun teacherProfile(navigationController: NavHostController) {
                     label = {
                         Text(
                             text = "Nome",
-                            color = Color(0xff201F4B)
+                            color = Color(0xff201F4B),
+                            fontStyle = FontStyle.Italic
                         )
                     }
                 )
@@ -157,7 +158,8 @@ fun teacherProfile(navigationController: NavHostController) {
                     label = {
                         Text(
                             text = "Materia que atua",
-                            color = Color(0xff201F4B)
+                            color = Color(0xff201F4B),
+                            fontStyle = FontStyle.Italic
                         )
                     }
                 )
@@ -176,7 +178,8 @@ fun teacherProfile(navigationController: NavHostController) {
                     label = {
                         Text(
                             text = "Horarios disponiveis ",
-                            color = Color(0xff201F4B)
+                            color = Color(0xff201F4B),
+                            fontStyle = FontStyle.Italic
                         )
                     }
                 )
@@ -195,7 +198,8 @@ fun teacherProfile(navigationController: NavHostController) {
                     label = {
                         Text(
                             text = "Dias disponiveis",
-                            color = Color(0xff201F4B)
+                            color = Color(0xff201F4B),
+                            fontStyle = FontStyle.Italic
                         )
                     }
                 )

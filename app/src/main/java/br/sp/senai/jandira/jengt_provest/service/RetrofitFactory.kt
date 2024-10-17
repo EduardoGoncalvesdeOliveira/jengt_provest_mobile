@@ -14,7 +14,7 @@ class RetrofitFactory {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getAlunoService(): AlunoService{
+    fun getAlunoService(): AlunoService {
         return retrofitFactory.create(AlunoService::class.java)
     }
 

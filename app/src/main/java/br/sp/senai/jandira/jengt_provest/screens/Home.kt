@@ -521,7 +521,7 @@ fun ModalDrawer(
     drawerContent: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
-    Box{
+    Box {
         Row {
             if (drawerState.isOpen) {
                 Box(
@@ -567,8 +567,6 @@ fun DrawerMenuItem(icon: ImageVector, text: String) {
         )
     }
 }
-
-
 
 
 @Preview(showBackground = true, showSystemUi = true)

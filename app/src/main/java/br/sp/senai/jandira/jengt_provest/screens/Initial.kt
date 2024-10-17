@@ -31,7 +31,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.sp.senai.jandira.jengt_provest.R
+import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @Composable
 fun Initial(navigationController: NavHostController) {
@@ -94,7 +96,7 @@ fun Initial(navigationController: NavHostController) {
                 Text(
                     textAlign = TextAlign.Center,
                     text = "OLÁ, ESTAMOS MUITO FELIZES POR TE VER POR AQUI!",
-                    fontSize = 24.sp
+                    fontSize = 22.sp
                 )
 
                 Column(
@@ -102,7 +104,7 @@ fun Initial(navigationController: NavHostController) {
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
-                ){
+                ) {
                     Button(
                         onClick = { navigationController.navigate("SignUpStudent") },
                         modifier = Modifier
@@ -139,9 +141,16 @@ fun Initial(navigationController: NavHostController) {
             }
 
 
-
         }
 
     }
 
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun initialPreview() {
+    JENGTProVestTheme {
+        Initial(navigationController = rememberNavController())
+    }
 }

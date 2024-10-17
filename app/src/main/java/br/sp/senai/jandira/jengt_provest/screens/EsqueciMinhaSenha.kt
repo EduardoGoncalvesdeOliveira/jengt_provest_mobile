@@ -39,9 +39,11 @@ fun forgotPassword(navigationController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Column (modifier = Modifier
-            .background(Color(0xffffffff1))
-            .fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .background(Color(0xffffffff1))
+                .fillMaxSize()
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -72,7 +74,7 @@ fun forgotPassword(navigationController: NavHostController) {
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            Row (
+            Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
@@ -86,18 +88,20 @@ fun forgotPassword(navigationController: NavHostController) {
                 )
             }
 
-            Column (
+            Column(
                 modifier = Modifier.fillMaxSize(),
-            ){
-                Column (
+            ) {
+                Column(
                     modifier = Modifier
                         .fillMaxHeight()
                         .padding(start = 48.dp, end = 48.dp),
                     verticalArrangement = Arrangement.SpaceEvenly
 
                 ) {
-                    Column (modifier = Modifier,
-                        horizontalAlignment = Alignment.Start){
+                    Column(
+                        modifier = Modifier,
+                        horizontalAlignment = Alignment.Start
+                    ) {
 
                         Text(
                             modifier = Modifier
@@ -126,8 +130,10 @@ fun forgotPassword(navigationController: NavHostController) {
                         )
                     }
 
-                    Column (modifier = Modifier,
-                        horizontalAlignment = Alignment.Start){
+                    Column(
+                        modifier = Modifier,
+                        horizontalAlignment = Alignment.Start
+                    ) {
 
                         Text(
                             modifier = Modifier
@@ -156,8 +162,10 @@ fun forgotPassword(navigationController: NavHostController) {
                         )
                     }
 
-                    Column (modifier = Modifier,
-                        horizontalAlignment = Alignment.Start){
+                    Column(
+                        modifier = Modifier,
+                        horizontalAlignment = Alignment.Start
+                    ) {
 
                         Text(
                             modifier = Modifier
@@ -186,8 +194,10 @@ fun forgotPassword(navigationController: NavHostController) {
                         )
                     }
 
-                    Column (modifier = Modifier,
-                        horizontalAlignment = Alignment.Start){
+                    Column(
+                        modifier = Modifier,
+                        horizontalAlignment = Alignment.Start
+                    ) {
 
                         Text(
                             modifier = Modifier

@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import br.senai.sp.jandira.rickandmortyapi.service.RetrofitFactory
 import kotlinx.coroutines.launch
 
-class TemaRedacao (
-    val id: Int= 0,
-    val nome: String= "",
-    val descricao: String= ""
+class TemaRedacao(
+    val id: Int = 0,
+    val nome: String = "",
+    val descricao: String = ""
 )

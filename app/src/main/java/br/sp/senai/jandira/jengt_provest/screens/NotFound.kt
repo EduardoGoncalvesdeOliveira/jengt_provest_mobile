@@ -74,54 +74,56 @@ fun notFound(controlNavigation: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                    Image(
+                Image(
+                    modifier = Modifier
+                        .padding(horizontal = 5.dp)
+                        .height(125.dp)
+                        .width(125.dp),
+                    painter = painterResource(
+                        id = R.drawable.notfoundprovest
+                    ),
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop
+                )
+
+                Column(
+                    modifier = Modifier
+                        .padding(horizontal = 10.dp)
+                        .fillMaxWidth()
+                        .height(120.dp),
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+
+                    Text(
                         modifier = Modifier
-                            .padding(horizontal = 5.dp)
-                            .height(125.dp)
-                            .width(125.dp),
-                        painter = painterResource(
-                            id = R.drawable.notfoundprovest
-                        ),
-                        contentDescription = "",
-                        contentScale = ContentScale.Crop
+                            .padding(vertical = 10.dp),
+                        text = "Ops!",
+                        color = Color(0xffDEFEA0),
+                        fontSize = 26.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Normal
                     )
 
-                    Column(
+                    Text(
                         modifier = Modifier
-                            .padding(horizontal = 10.dp)
-                            .fillMaxWidth()
-                            .height(120.dp),
-                        verticalArrangement = Arrangement.Bottom
-                    ) {
-
-                        Text(
-                            modifier = Modifier
-                                .padding(vertical = 10.dp),
-                            text = "Ops!",
-                            color = Color(0xffDEFEA0),
-                            fontSize = 26.sp,
-                            fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Normal,
-                            fontWeight = FontWeight.Normal
-                        )
-
-                        Text(
-                            modifier = Modifier
-                                .padding(vertical = 10.dp),
-                            text = "Parece que ocorreu um erro",
-                            color = Color(0xffDEFEA0),
-                            fontSize = 26.sp,
-                            fontFamily = FontFamily.SansSerif,
-                            fontStyle = FontStyle.Normal,
-                            fontWeight = FontWeight.Normal
-                        )
-                    }
+                            .padding(vertical = 10.dp),
+                        text = "Parece que ocorreu um erro",
+                        color = Color(0xffDEFEA0),
+                        fontSize = 26.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Normal
+                    )
+                }
 
 
-                Column (modifier = Modifier
-                    .padding(10.dp)
-                    .height(200.dp),
-                    verticalArrangement = Arrangement.SpaceEvenly){
+                Column(
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .height(200.dp),
+                    verticalArrangement = Arrangement.SpaceEvenly
+                ) {
 
                     Text(
                         modifier = Modifier,
@@ -156,7 +158,7 @@ fun notFound(controlNavigation: NavHostController) {
                 }
 
                 Button(
-                    onClick = {  },
+                    onClick = { },
                     modifier = Modifier
                         .size(width = 260.dp, height = 52.dp)
                         .padding(top = 12.dp),

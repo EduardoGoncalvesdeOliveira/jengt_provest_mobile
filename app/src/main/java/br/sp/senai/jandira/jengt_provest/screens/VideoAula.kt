@@ -96,16 +96,6 @@ fun videoAula(controlNavigation: NavHostController) {
                         )
                     }
                 }
-
-                Icon(
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .size(40.dp),
-                    imageVector = Icons.Default.ArrowBackIosNew,
-                    contentDescription = "BackPage",
-                    tint = Color(0xff201F4B)
-                )
-
             }
             Column(
                 modifier = Modifier
@@ -116,7 +106,8 @@ fun videoAula(controlNavigation: NavHostController) {
 
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()) {
+                        .fillMaxWidth()
+                ) {
 
                     Text(
                         text = "UniCamp - GEOGRAFIA - Geopolítica - VídeoAula 1",
@@ -129,15 +120,18 @@ fun videoAula(controlNavigation: NavHostController) {
 
                 }
 
-                Spacer(modifier = Modifier
-                    .fillMaxWidth()
-                    .height(150.dp))
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp)
+                )
 
-                Column (modifier = Modifier
-                    .height(175.dp),
+                Column(
+                    modifier = Modifier
+                        .height(175.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.SpaceAround
-                    ){
+                ) {
 
                     Button(
                         onClick = { },

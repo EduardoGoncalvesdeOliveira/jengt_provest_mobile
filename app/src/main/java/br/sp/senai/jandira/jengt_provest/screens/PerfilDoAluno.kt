@@ -51,6 +51,7 @@ fun studentProfile(navigationController: NavHostController) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(Color(0xfffffff1))
         ) {
             Box(
                 modifier = Modifier
@@ -235,30 +236,11 @@ fun studentProfile(navigationController: NavHostController) {
 
             }
 
-
-
-            Row (
-
-            ){
-                Icon(
-                    modifier = Modifier
-                        .width(60.dp),
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "botao de voltar",
-                    tint = Color(0xFF000000),
-
-                    )
-            }
-
-
         }
 
     }
 
 }
-
-
-
 
 
 @Preview(showSystemUi = true, showBackground = true)

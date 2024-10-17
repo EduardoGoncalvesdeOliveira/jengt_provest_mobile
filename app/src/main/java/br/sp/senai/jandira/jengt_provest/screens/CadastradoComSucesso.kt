@@ -44,22 +44,23 @@ fun registeredSuccessfully(navigationController: NavHostController) {
                 .background(color = Color(0xff201F4B)),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
             Icon(
                 modifier = Modifier.size(180.dp),
                 imageVector = Icons.Default.CheckCircle,
                 contentDescription = "Confirmação de cadastro",
-                tint = Color(0xff8CE5C3))
+                tint = Color(0xff8CE5C3)
+            )
 
             Text(
                 modifier = Modifier.padding(top = 20.dp),
-                text = "CADASTRADO COM SUCESSO!",
+                text = "CADASTRADO COM SUCESSO !",
                 color = Color(0xffDEFEA0),
                 fontSize = 24.sp
             )
             Spacer(modifier = Modifier.height(200.dp))
 
-            Column(){
+            Column() {
                 Button(
                     onClick = { navigationController.navigate("StudentProfile") },
                     modifier = Modifier
@@ -97,7 +98,6 @@ fun registeredSuccessfully(navigationController: NavHostController) {
                 }
             }
         }
-
 
 
     }

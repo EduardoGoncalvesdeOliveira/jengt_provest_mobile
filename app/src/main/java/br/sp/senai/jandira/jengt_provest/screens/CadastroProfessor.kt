@@ -61,7 +61,7 @@ fun signUpTeacher(controlNavigation: NavHostController) {
                         color = Color(0xff201F4B),
                         shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
                     )
-                    .height(182.dp)
+                    .height(150.dp)
             )
             {
                 Column(
@@ -104,7 +104,7 @@ fun signUpTeacher(controlNavigation: NavHostController) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Cadastro",
+                    text = "Sign Up",
                     fontSize = 44.sp,
                     fontFamily = FontFamily.SansSerif,
                     fontStyle = FontStyle.Normal,
@@ -128,7 +128,8 @@ fun signUpTeacher(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = nameState.value,
                     onValueChange = {
                         nameState.value = it
@@ -161,7 +162,8 @@ fun signUpTeacher(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = emailState.value,
                     onValueChange = {
                         emailState.value = it
@@ -194,7 +196,8 @@ fun signUpTeacher(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = passwordState.value,
                     onValueChange = {
                         passwordState.value = it
@@ -227,7 +230,8 @@ fun signUpTeacher(controlNavigation: NavHostController) {
 
                 OutlinedTextField(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .height(44.dp),
                     value = phoneState.value,
                     onValueChange = {
                         phoneState.value = it
@@ -278,8 +282,8 @@ fun signUpTeacher(controlNavigation: NavHostController) {
 
                         },
                         modifier = Modifier
-                            .size(width = 260.dp, height = 52.dp)
-                            .padding(top = 12.dp),
+                            .size(width = 260.dp, height = 40.dp)
+                            .padding(top = 0.dp),
                         colors = ButtonDefaults.buttonColors(Color(0xffBCB3DF)),
                         border = BorderStroke(1.dp, Color(0xffBCB3DF))
                     ) {

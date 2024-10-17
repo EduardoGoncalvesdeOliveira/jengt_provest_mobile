@@ -18,7 +18,7 @@ interface RedacaoService {
 //        @GET("aluno")
 //        fun getAllAlunos(): Call<Results>
 
-        @Headers("Content-Type: application/json")
-        @POST("redacao")
-        fun postRedacao(@Body redacao: Redacao): Call<Redacao>
+    @Headers("Content-Type: application/json")
+    @POST("redacao")
+    fun postRedacao(@Body redacao: Redacao): Call<Redacao>
 }
