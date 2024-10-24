@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import br.senai.jandira.sp.screens.teacherProfile
 import br.sp.senai.jandira.jengt_provest.screens.Initial
 import br.sp.senai.jandira.jengt_provest.screens.cadernoDoAluno
+import br.sp.senai.jandira.jengt_provest.screens.chats
 //import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 import br.sp.senai.jandira.jengt_provest.screens.forgotPassword
 import br.sp.senai.jandira.jengt_provest.screens.home
@@ -50,7 +51,11 @@ class MainActivity : ComponentActivity() {
                         composable(route = "ForgotPassword") { forgotPassword(controlNavigation) }
 
 
-                        composable(route = "RegisteredSuccessfully") { registeredSuccessfully(controlNavigation) }
+                        composable(route = "RegisteredSuccessfully") {
+                            registeredSuccessfully(
+                                controlNavigation
+                            )
+                        }
 
 
                         composable(route = "TeacherProfile") { teacherProfile(controlNavigation) }
@@ -67,6 +72,9 @@ class MainActivity : ComponentActivity() {
 //                        composable(route = "EscolhaTemaRedacao") { escolhaTemaRedacao(controlNavigation) }
 
                         composable(route = "NotFound") { notFound(controlNavigation) }
+
+                        composable(route = "Chats") { chats(controlNavigation) }
+
 
                     }
                 }

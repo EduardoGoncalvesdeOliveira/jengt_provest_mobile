@@ -85,31 +85,32 @@ fun home(navigationController: NavHostController) {
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.book),
+                            painter = painterResource(id = R.drawable.notebook_icon),
                             contentDescription = "Anotações",
                             modifier = Modifier
-                                .size(24.dp)
+                                .padding(top = 2.dp)
+                                .size(34.dp)
                                 .clickable { navigationController.navigate("CadernoDoAluno") },
                         )
 
                         Icon(
-                            painter = painterResource(id = R.drawable.home),
+                            painter = painterResource(id = R.drawable.home_icon),
                             contentDescription = "Home",
                             modifier = Modifier
-                                .size(24.dp)
-                                .clickable {
+                                .padding(bottom = 0.dp)
+                                .size(40.dp)
+                                .clickable { navigationController.navigate("Home") },
 
-                                }
                         )
 
                         Icon(
-                            painter = painterResource(id = R.drawable.chat),
+                            painter = painterResource(id = R.drawable.chat_icon),
                             contentDescription = "Mensagens",
                             modifier = Modifier
-                                .size(24.dp)
-                                .clickable {
+                                .padding(top = 2.dp)
+                                .size(34.dp)
+                                .clickable { navigationController.navigate("Chats") },
 
-                                }
                         )
                     }
                 }
@@ -569,7 +570,7 @@ fun DrawerMenuItem(icon: ImageVector, text: String) {
 }
 
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun homePreview() {
     JENGTProVestTheme {

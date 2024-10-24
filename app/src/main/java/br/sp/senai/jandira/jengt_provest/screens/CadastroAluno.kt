@@ -109,9 +109,11 @@ fun signUpStudent(controlNavigation: NavHostController) {
                 )
             }
 
-            Spacer(modifier = Modifier
-                .fillMaxWidth()
-                .height(0.dp))
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(0.dp)
+            )
 
             Row(
                 modifier = Modifier
@@ -247,8 +249,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
                 OutlinedTextField(
                     modifier = Modifier
                         .fillMaxWidth()
-                    .height(44.dp),
-                value = courseState.value,
+                        .height(44.dp),
+                    value = courseState.value,
                     onValueChange = {
                         courseState.value = it
                     },
@@ -281,8 +283,8 @@ fun signUpStudent(controlNavigation: NavHostController) {
                 OutlinedTextField(
                     modifier = Modifier
                         .fillMaxWidth()
-                    .height(44.dp),
-                value = iconState.value,
+                        .height(44.dp),
+                    value = iconState.value,
                     onValueChange = {
                         iconState.value = it
                     },

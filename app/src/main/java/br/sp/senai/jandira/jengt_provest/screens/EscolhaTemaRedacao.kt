@@ -1,4 +1,22 @@
 package br.sp.senai.jandira.jengt_provest.screens
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import br.sp.senai.jandira.jengt_provest.R
+
 //
 //import androidx.compose.foundation.BorderStroke
 //import androidx.compose.foundation.background
@@ -64,9 +82,52 @@ package br.sp.senai.jandira.jengt_provest.screens
 //    // Obtém a lista de temas do ViewModel
 //    val temas = temaViewModel.temas.value
 //
-//    Surface(
-//        modifier = Modifier.fillMaxSize()
+//Scaffold(
+//
+//bottomBar = {
+//    BottomAppBar(
+//        modifier = Modifier
+//            .clip(RoundedCornerShape(topStart = 35.dp, topEnd = 35.dp)),
+//        containerColor = Color(0xffC6E6A3),
+//        contentColor = Color(0xff201F4B),
 //    ) {
+//        Row(
+//            modifier = Modifier.fillMaxWidth(),
+//            horizontalArrangement = Arrangement.SpaceAround
+//        ) {
+//            Icon(
+//                painter = painterResource(id = R.drawable.notebook_icon),
+//                contentDescription = "Anotações",
+//                modifier = Modifier
+//                    .padding(top = 2.dp)
+//                    .size(34.dp)
+//                    .clickable { controlNavigation.navigate("CadernoDoAluno") },
+//            )
+//
+//            Icon(
+//                painter = painterResource(id = R.drawable.home_icon),
+//                contentDescription = "Home",
+//                modifier = Modifier
+//                    .padding(bottom = 0.dp)
+//                    .size(40.dp)
+//                    .clickable { controlNavigation.navigate("Home") },
+//
+//                )
+//
+//            Icon(
+//                painter = painterResource(id = R.drawable.chat_icon),
+//                contentDescription = "Mensagens",
+//                modifier = Modifier
+//                    .padding(top = 2.dp)
+//                    .size(34.dp)
+//                    .clickable { controlNavigation.navigate("Chats") },
+//
+//                )
+//        }
+//    }
+//},
+//content = { innerPadding ->
+//    Box(modifier = Modifier.padding(innerPadding)) {
 //        Column(
 //            modifier = Modifier
 //                .background(Color(0xffffffff1))
@@ -185,12 +246,13 @@ package br.sp.senai.jandira.jengt_provest.screens
 //                }
 //            }
 //        }
-//    }
+//}
+//    })
 //}
 //
 //
 //
-//@Preview(showBackground = true, showSystemUi = true)
+//@Preview(showBackground = true)
 //@Composable
 //fun escolhaTemaRedacaoPreview() {
 //    JENGTProVestTheme {
