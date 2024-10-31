@@ -9,13 +9,21 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.CollectionsBookmark
+import androidx.compose.material.icons.filled.Save
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -49,7 +57,7 @@ import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun redacao(controlNavigation: NavHostController) {
+fun redacao(controlNavigation: NavHostController, tituloTema: String) {
 
     Scaffold(
 
@@ -130,10 +138,111 @@ fun redacao(controlNavigation: NavHostController) {
                         }
                     }
 
+
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(68.dp)
+                            .height(100.dp)
+                            .padding(vertical = 22.dp, horizontal = 18.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+
+                        Button(
+                            onClick = { },
+                            modifier = Modifier
+                                .size(width = 142.dp, height = 100.dp),
+                            shape = RoundedCornerShape(8.dp),
+                            colors = ButtonDefaults.buttonColors(Color(0xffC6E6A3))
+                        ) {
+
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxSize(),
+                                horizontalArrangement = Arrangement.SpaceAround,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "Salvar",
+                                    fontSize = 20.sp,
+                                    fontFamily = FontFamily.Default,
+                                    fontWeight = FontWeight.Bold,
+                                    fontStyle = FontStyle.Normal,
+                                    color = Color(0xff201F4B)
+                                )
+
+                                Icon(
+                                    imageVector = Icons.Default.Save,
+                                    contentDescription = "Atividades",
+                                    tint = Color(0xff201F4B),
+                                    modifier = Modifier
+                                        .size(26.dp)
+                                )
+                            }
+                        }
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .width(160.dp),
+                            horizontalArrangement = Arrangement.SpaceAround
+                        ) {
+                            Button(
+                                onClick = { },
+                                modifier = Modifier
+                                    .size(width = 70.dp, height = 100.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                colors = ButtonDefaults.buttonColors(Color(0xffE4E2ED))
+                            ) {
+
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxSize(),
+                                    horizontalArrangement = Arrangement.SpaceAround,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+
+                                    Icon(
+                                        imageVector = Icons.Default.CollectionsBookmark,
+                                        contentDescription = "Atividades",
+                                        tint = Color(0xff201F4B),
+                                        modifier = Modifier
+                                            .size(26.dp)
+                                    )
+                                }
+                            }
+
+                            Button(
+                                onClick = { },
+                                modifier = Modifier
+                                    .size(width = 70.dp, height = 100.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                colors = ButtonDefaults.buttonColors(Color(0xffE4E2ED))
+                            ) {
+
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxSize(),
+                                    horizontalArrangement = Arrangement.SpaceAround,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+
+                                    Icon(
+                                        imageVector = Icons.Default.Add,
+                                        contentDescription = "Atividades",
+                                        tint = Color(0xff201F4B),
+                                        modifier = Modifier
+                                            .size(26.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .padding(horizontal = 18.dp),
                         verticalAlignment = Alignment.Bottom,
                         horizontalArrangement = Arrangement.Start
@@ -149,7 +258,7 @@ fun redacao(controlNavigation: NavHostController) {
                     Spacer(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(42.dp)
+                            .height(25.dp)
                     )
 
                     Row(
@@ -171,11 +280,14 @@ fun redacao(controlNavigation: NavHostController) {
                                     .fillMaxWidth(),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
+
+                                var tema by remember { mutableStateOf(tituloTema) }  // Usa o título do tema
+
                                 Text(
                                     modifier = Modifier
                                         .padding(horizontal = 14.dp, vertical = 4.dp),
-                                    text = "Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil.",
-                                    fontSize = 14.sp,
+                                    text = tema,
+                                    fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
                                     fontWeight = FontWeight.Bold,
                                     textAlign = TextAlign.Center
@@ -192,32 +304,29 @@ fun redacao(controlNavigation: NavHostController) {
                             .padding(top = 12.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-
-                        var title by remember { mutableStateOf("") }
+                        var title by remember { mutableStateOf("") }  // Usa o título do tema
 
                         TextField(
                             value = title,
                             onValueChange = { title = it },  // Atualiza o estado do texto
                             label = {},
-                            placeholder = { Text("Título:") },  // Placeholder quando o campo está vazio
-                            modifier = Modifier.fillMaxWidth(),  // O TextField ocupa toda a largura disponível
+                            placeholder = { Text("Título:") },
+                            modifier = Modifier.fillMaxWidth(),
                             colors = TextFieldDefaults.textFieldColors(
-                                containerColor = Color(0xfff7f6f6),  // Fundo transparente
-                                focusedIndicatorColor = Color.Transparent,  // Borda ao focar
-                                unfocusedIndicatorColor = Color.Transparent  // Borda quando não focado
+                                containerColor = Color(0xfff7f6f6),
+                                focusedIndicatorColor = Color.Transparent,
+                                unfocusedIndicatorColor = Color.Transparent
                             ),
                             textStyle = androidx.compose.ui.text.TextStyle(
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Center
                             ),
-
                             shape = RoundedCornerShape(
-                                topEnd = 8.dp, // Não arredonda o canto inferior direito
-                                topStart = 8.dp  // Arredonda bastante o canto inferior esquerdo
+                                topEnd = 8.dp,
+                                topStart = 8.dp
                             ),
-
-                            )
+                        )
 
 
                         var text by remember { mutableStateOf("") }
@@ -247,10 +356,10 @@ fun redacao(controlNavigation: NavHostController) {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun redacaoPreview() {
-    JENGTProVestTheme {
-        redacao(controlNavigation = rememberNavController())
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun redacaoPreview() {
+//    JENGTProVestTheme {
+//        redacao(controlNavigation = rememberNavController())
+//    }
+//}

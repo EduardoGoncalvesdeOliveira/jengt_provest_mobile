@@ -52,6 +52,7 @@ fun home(navigationController: NavHostController) {
             modifier = Modifier
                 .fillMaxHeight()
                 .padding(16.dp)
+                .background(Color(0xfffffff1))
         ) {
             Text("Bem-vindo, Celso!", fontSize = 24.sp, color = Color.Black)
 
@@ -72,6 +73,8 @@ fun home(navigationController: NavHostController) {
         drawerContent = drawerContent
     ) {
         Scaffold(
+            modifier = Modifier
+                .background(Color(0xfffffff1)),
 
             bottomBar = {
                 BottomAppBar(
@@ -101,7 +104,7 @@ fun home(navigationController: NavHostController) {
                                 .size(40.dp)
                                 .clickable { navigationController.navigate("Home") },
 
-                        )
+                            )
 
                         Icon(
                             painter = painterResource(id = R.drawable.chat_icon),
@@ -111,22 +114,27 @@ fun home(navigationController: NavHostController) {
                                 .size(34.dp)
                                 .clickable { navigationController.navigate("Chats") },
 
-                        )
+                            )
                     }
                 }
             },
             content = { innerPadding ->
-                Box(modifier = Modifier.padding(innerPadding)) {
+                Box(
+                    modifier = Modifier
+                        .padding(innerPadding)
+                        .background(Color(0xfffffff1))
+                ) {
                     Surface(
                         modifier = Modifier
                             .wrapContentSize()
-                            .background(color = Color(0xFFFFFFF1))
+                            .background(Color(0xFFFFFFF1))
                     ) {
                         Column(
                             modifier = Modifier
                                 .wrapContentSize()
                                 .padding(horizontal = 16.dp, vertical = 0.dp)
                                 .verticalScroll(scrollState)
+                                .background(Color(0xfffffff1))
                         ) {
                             Row(
                                 modifier = Modifier

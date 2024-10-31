@@ -159,18 +159,21 @@ fun ChatItem(name: String) {
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        Card (modifier = Modifier
-            .size(54.dp)
-            .clip(RoundedCornerShape(50.dp)),
+        Card(
+            modifier = Modifier
+                .size(54.dp)
+                .clip(RoundedCornerShape(50.dp)),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFD9D9D9))) {
+                containerColor = Color(0xFFD9D9D9)
+            )
+        ) {
 
 
-
-
-            Column (modifier = Modifier
-                .fillMaxSize()
-                .padding(12.dp)){
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(12.dp)
+            ) {
 
                 Image(
                     modifier = Modifier
@@ -184,8 +187,10 @@ fun ChatItem(name: String) {
             }
         }
 
-        Column (modifier = Modifier
-            .padding(start = 16.dp)) {
+        Column(
+            modifier = Modifier
+                .padding(start = 16.dp)
+        ) {
 
             Text(
                 modifier = Modifier,
@@ -210,11 +215,13 @@ fun ChatItem(name: String) {
         }
     }
 
-    Card (modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = 2.dp, bottom = 32.dp)
-        .height(0.8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))){}
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 2.dp, bottom = 32.dp)
+            .height(0.8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
+    ) {}
 }
 
 

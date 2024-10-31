@@ -15,6 +15,7 @@ import br.senai.jandira.sp.screens.teacherProfile
 import br.sp.senai.jandira.jengt_provest.screens.Initial
 import br.sp.senai.jandira.jengt_provest.screens.cadernoDoAluno
 import br.sp.senai.jandira.jengt_provest.screens.chats
+import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 //import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 import br.sp.senai.jandira.jengt_provest.screens.forgotPassword
 import br.sp.senai.jandira.jengt_provest.screens.home
@@ -63,13 +64,26 @@ class MainActivity : ComponentActivity() {
 
                         composable(route = "Home") { home(controlNavigation) }
 
-                        composable(route = "Redacao") { redacao(controlNavigation) }
+                        composable(route = "Redacao/{tituloTema}") { backStackEntry ->
+                            val tituloTema = backStackEntry.arguments?.getString("tituloTema") ?: ""
+                            redacao(controlNavigation, tituloTema = tituloTema)
+                        }
+
+//                        composable(route = "Redacao") { redacao(controlNavigation, tituloTema = String()) }
+
+//                        composable(route = "EscolhaTemaRedacao") {
+//                            escolhaTemaRedacao(controlNavigation, tituloTema = "Título Exemplo")
+//                        }
 
                         composable(route = "CadernoDoAluno") { cadernoDoAluno(controlNavigation) }
 
                         composable(route = "VideoAula") { videoAula(controlNavigation) }
 
-//                        composable(route = "EscolhaTemaRedacao") { escolhaTemaRedacao(controlNavigation) }
+                        composable(route = "EscolhaTemaRedacao") {
+                            escolhaTemaRedacao(
+                                controlNavigation
+                            )
+                        }
 
                         composable(route = "NotFound") { notFound(controlNavigation) }
 
