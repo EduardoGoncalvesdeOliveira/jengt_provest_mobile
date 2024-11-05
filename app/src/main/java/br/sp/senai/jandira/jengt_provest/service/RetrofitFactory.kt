@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.rickandmortyapi.service
 
 import br.sp.senai.jandira.jengt_provest.service.CadernoService
+import br.sp.senai.jandira.jengt_provest.service.RedacaoService
 import br.sp.senai.jandira.jengt_provest.service.TemaRedacaoService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -23,8 +24,8 @@ class RetrofitFactory {
         return retrofitFactory.create(TemaRedacaoService::class.java)
     }
 
-    fun getCadernoService(): CadernoService {
-        return retrofitFactory.create(CadernoService::class.java)
+    fun getRedacaoService(): RedacaoService {
+        return retrofitFactory.create(RedacaoService::class.java)
     }
 
     // FALTA IMPLEMENTAR ALGUNS AINDA

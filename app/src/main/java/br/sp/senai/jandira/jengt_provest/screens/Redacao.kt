@@ -150,7 +150,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                         Button(
                             onClick = { },
                             modifier = Modifier
-                                .size(width = 142.dp, height = 100.dp),
+                                .size(width = 225.dp, height = 100.dp),
                             shape = RoundedCornerShape(8.dp),
                             colors = ButtonDefaults.buttonColors(Color(0xffC6E6A3))
                         ) {
@@ -162,7 +162,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Text(
-                                    text = "Salvar",
+                                    text = "Salvar & Enviar",
                                     fontSize = 20.sp,
                                     fontFamily = FontFamily.Default,
                                     fontWeight = FontWeight.Bold,
@@ -187,7 +187,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                             horizontalArrangement = Arrangement.SpaceAround
                         ) {
                             Button(
-                                onClick = { },
+                                onClick = { controlNavigation.navigate("EscolhaTemaRedacao") },
                                 modifier = Modifier
                                     .size(width = 70.dp, height = 100.dp),
                                 shape = RoundedCornerShape(8.dp),
@@ -203,31 +203,6 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
 
                                     Icon(
                                         imageVector = Icons.Default.CollectionsBookmark,
-                                        contentDescription = "Atividades",
-                                        tint = Color(0xff201F4B),
-                                        modifier = Modifier
-                                            .size(26.dp)
-                                    )
-                                }
-                            }
-
-                            Button(
-                                onClick = { },
-                                modifier = Modifier
-                                    .size(width = 70.dp, height = 100.dp),
-                                shape = RoundedCornerShape(8.dp),
-                                colors = ButtonDefaults.buttonColors(Color(0xffE4E2ED))
-                            ) {
-
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxSize(),
-                                    horizontalArrangement = Arrangement.SpaceAround,
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-
-                                    Icon(
-                                        imageVector = Icons.Default.Add,
                                         contentDescription = "Atividades",
                                         tint = Color(0xff201F4B),
                                         modifier = Modifier
@@ -283,9 +258,12 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
 
                                 var tema by remember { mutableStateOf(tituloTema) }  // Usa o título do tema
 
+//                                var tema by remember { mutableStateOf("") }  // Usa o título do tema
+
+
                                 Text(
                                     modifier = Modifier
-                                        .padding(horizontal = 14.dp, vertical = 4.dp),
+                                        .padding(horizontal = 14.dp, vertical = 8.dp),
                                     text = tema,
                                     fontSize = 18.sp,
                                     fontFamily = FontFamily.Default,
@@ -310,7 +288,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                             value = title,
                             onValueChange = { title = it },  // Atualiza o estado do texto
                             label = {},
-                            placeholder = { Text("Título:") },
+                            placeholder = { Text("Título:\n(opcional)") },
                             modifier = Modifier.fillMaxWidth(),
                             colors = TextFieldDefaults.textFieldColors(
                                 containerColor = Color(0xfff7f6f6),
@@ -335,7 +313,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                             value = text,
                             onValueChange = { text = it },
                             label = {},
-                            placeholder = { Text("Escreva seu texto aqui") },
+                            placeholder = { Text("Escreva seu texto aqui:") },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(1000.dp),  // Aumenta a altura do TextField

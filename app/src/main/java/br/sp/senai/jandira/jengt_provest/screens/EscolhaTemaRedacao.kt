@@ -188,8 +188,7 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                         LazyColumn(
                             modifier = Modifier
                                 .padding(4.dp)
-                                .height(450.dp)
-                                .fillMaxWidth()
+                                .fillMaxSize()
                         ) {
                             items(temas) { tema ->
 
@@ -230,20 +229,6 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                                     }
                                 }
                             }
-                        }
-
-                        Button(
-                            onClick = { navigationController.navigate("Redacao") },
-                            modifier = Modifier
-                                .size(width = 260.dp, height = 72.dp)
-                                .padding(top = 12.dp, bottom = 20.dp),
-                            colors = ButtonDefaults.buttonColors(Color(0xffDEFEA0))
-                        ) {
-                            Text(
-                                text = "Vamos escrever!",
-                                fontSize = 16.sp,
-                                color = Color(0xff201F4B)
-                            )
                         }
                     }
                 }

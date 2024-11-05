@@ -6,3 +6,7 @@ data class Redacao(
     val texto: String = "",
     val tema_id: Int
 )
+
+data class RedacaoResponse(
+    val tema: List<Redacao>
+)

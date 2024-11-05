@@ -12,15 +12,8 @@ import retrofit2.http.Path
 
 interface RedacaoService {
 
-//        @GET("aluno/{id}")
-//        fun getAlunoById(@Path("id") id: Int): Call<Aluno>
-//
-//        @GET("aluno")
-//        fun getAllAlunos(): Call<Results>
-//
-//    @Headers("Content-Type: application/json")
-//    @POST("redacao")
-//    fun postRedacao(@Body redacao: Redacao): Call<Redacao>
+    @Headers("Content-Type: application/json")
+    @POST("redacao")
+    fun postRedacao(@Body redacao: Redacao): Call<Redacao>
 
-    // MANIPULAR O CADERNO PRIMEIRO
 }

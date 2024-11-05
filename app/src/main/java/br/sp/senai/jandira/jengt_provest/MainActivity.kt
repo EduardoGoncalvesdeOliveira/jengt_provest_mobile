@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import br.senai.jandira.sp.screens.teacherProfile
 import br.sp.senai.jandira.jengt_provest.screens.Initial
 import br.sp.senai.jandira.jengt_provest.screens.cadernoDoAluno
+import br.sp.senai.jandira.jengt_provest.screens.chatComUsuario
 import br.sp.senai.jandira.jengt_provest.screens.chats
 import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 //import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
@@ -69,12 +70,6 @@ class MainActivity : ComponentActivity() {
                             redacao(controlNavigation, tituloTema = tituloTema)
                         }
 
-//                        composable(route = "Redacao") { redacao(controlNavigation, tituloTema = String()) }
-
-//                        composable(route = "EscolhaTemaRedacao") {
-//                            escolhaTemaRedacao(controlNavigation, tituloTema = "Título Exemplo")
-//                        }
-
                         composable(route = "CadernoDoAluno") { cadernoDoAluno(controlNavigation) }
 
                         composable(route = "VideoAula") { videoAula(controlNavigation) }
@@ -88,6 +83,9 @@ class MainActivity : ComponentActivity() {
                         composable(route = "NotFound") { notFound(controlNavigation) }
 
                         composable(route = "Chats") { chats(controlNavigation) }
+
+                        composable(route = "ChatComUsuario") { chatComUsuario(controlNavigation) }
+
 
 
                     }
