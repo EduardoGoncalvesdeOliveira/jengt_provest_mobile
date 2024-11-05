@@ -7,3 +7,10 @@ data class CadernoAluno(
     val texto: String = "",
     val aluno_id: Int
 )
+
+data class CadernoAlunoResponse(
+
+    val anotacoes: List<CadernoAluno>,
+    val qt: Int,
+    val status_code: Int
+)

@@ -28,5 +28,9 @@ class RetrofitFactory {
         return retrofitFactory.create(RedacaoService::class.java)
     }
 
+    fun getCadernoAlunoService(): CadernoService {
+        return retrofitFactory.create(CadernoService::class.java)
+    }
+
     // FALTA IMPLEMENTAR ALGUNS AINDA
 }

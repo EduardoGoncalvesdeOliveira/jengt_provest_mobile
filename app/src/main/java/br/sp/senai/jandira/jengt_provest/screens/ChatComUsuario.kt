@@ -105,11 +105,11 @@ fun chatComUsuario(controlNavigation: NavHostController) {
 
                             Text(
                                 text = "Eduardo G. de Oliveira",
-                                color = Color(0xffDEFEA0),
+                                color = Color(0xffBCB3DF),
                                 fontSize = 24.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 fontStyle = FontStyle.Normal,
-                                fontWeight = FontWeight.Light
+                                fontWeight = FontWeight.Normal
                             )
 
                             Card(

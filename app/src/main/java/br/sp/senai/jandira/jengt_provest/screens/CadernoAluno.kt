@@ -52,6 +52,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.sp.senai.jandira.jengt_provest.R
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
@@ -192,7 +193,9 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                                 horizontalArrangement = Arrangement.SpaceAround
                             ) {
                                 Button(
-                                    onClick = { },
+                                    onClick = {
+                                        controlNavigation.navigate("ListaDeCadernos")
+                                    },
                                     modifier = Modifier
                                         .size(width = 70.dp, height = 100.dp),
                                     shape = RoundedCornerShape(8.dp),
