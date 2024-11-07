@@ -78,7 +78,7 @@ fun listaCadernos(controlNavigation: NavHostController) {
     var CadernoAlunoService = retrofitFactory.getCadernoAlunoService()
 
     LaunchedEffect(Unit) {
-    
+
         CadernoAlunoService.getAllCadernos().enqueue(object : Callback<CadernoAlunoResponse> {
             override fun onResponse(
                 p0: Call<CadernoAlunoResponse>,
@@ -125,7 +125,6 @@ fun listaCadernos(controlNavigation: NavHostController) {
                             .padding(bottom = 0.dp)
                             .size(40.dp)
                             .clickable { controlNavigation.navigate("Home") },
-
                         )
 
                     Icon(
@@ -194,7 +193,7 @@ fun listaCadernos(controlNavigation: NavHostController) {
                                     modifier = Modifier
                                         .padding(8.dp)
                                         .fillMaxWidth()
-                                        .clickable {  },
+                                        .clickable { },
                                     elevation = CardDefaults.elevatedCardElevation(4.dp),
                                     colors = CardDefaults.cardColors(
                                         containerColor = Color(0xff201F4B)  // Define a cor de fundo do Card

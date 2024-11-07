@@ -67,14 +67,40 @@ fun chatComUsuario(controlNavigation: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 32.dp),
-                    horizontalArrangement = Arrangement.End
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
+
+                    var text by remember { mutableStateOf("") }
+
+                    TextField(
+                        value = text,
+                        onValueChange = { text = it },
+                        label = { Text("Seu texto aqui...",
+                            color = Color(0xffC6E6A3),
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily.SansSerif,
+                            fontStyle = FontStyle.Normal,
+                            fontWeight = FontWeight.Normal)},
+                        placeholder = { },
+                        modifier = Modifier
+                            .width(275.dp),
+                        colors = TextFieldDefaults.textFieldColors(
+                            containerColor = Color.Transparent,
+                            focusedIndicatorColor = Color.Transparent,
+                            unfocusedIndicatorColor = Color.Transparent
+                        ),
+                        shape = RoundedCornerShape(
+                            bottomEnd = 8.dp, // Não arredonda o canto inferior direito
+                            bottomStart = 8.dp  // Arredonda bastante o canto inferior esquerdo
+                        )
+                    )
+
                     Icon(
                         painter = painterResource(id = R.drawable.send),
                         contentDescription = "Enviar",
                         modifier = Modifier
                             .size(34.dp)
-                            .clickable {  },
+                            .clickable { },
                     )
                 }
             }
@@ -104,7 +130,7 @@ fun chatComUsuario(controlNavigation: NavHostController) {
                         ) {
 
                             Text(
-                                text = "Eduardo G. de Oliveira",
+                                text = "Prof Tamires Fernandes",
                                 color = Color(0xffBCB3DF),
                                 fontSize = 24.sp,
                                 fontFamily = FontFamily.SansSerif,
@@ -132,7 +158,7 @@ fun chatComUsuario(controlNavigation: NavHostController) {
                                         modifier = Modifier
                                             .fillMaxSize(),
                                         painter = painterResource(
-                                            id = R.drawable.foxprofile
+                                            id = R.drawable.cat
                                         ),
                                         contentDescription = "",
                                         contentScale = ContentScale.Crop
@@ -152,8 +178,6 @@ fun chatComUsuario(controlNavigation: NavHostController) {
 
 
                         Spacer(modifier = Modifier.height(16.dp))
-
-
 
 
                     }

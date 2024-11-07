@@ -141,88 +141,230 @@ fun chats(controlNavigation: NavHostController) {
                     ) {
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        ChatItem("Prof Nycolle Lima")
-                        ChatItem("Prof Julia Fonseca")
-                        ChatItem("Prof Tamires")
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp)
+                                .clickable { controlNavigation.navigate("ChatComUsuario") },
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+
+                            Card(
+                                modifier = Modifier
+                                    .size(54.dp)
+                                    .clip(RoundedCornerShape(50.dp)),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = Color(0xFFD9D9D9)
+                                )
+                            ) {
+
+
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(12.dp)
+                                ) {
+
+                                    Image(
+                                        modifier = Modifier
+                                            .fillMaxSize(),
+                                        painter = painterResource(
+                                            id = R.drawable.cat
+                                        ),
+                                        contentDescription = "",
+                                        contentScale = ContentScale.Crop
+                                    )
+                                }
+                            }
+
+                            Column(
+                                modifier = Modifier
+                                    .padding(start = 16.dp)
+                            ) {
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "Prof Julia Fonseca",
+                                    fontSize = 15.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Normal,
+                                    fontWeight = FontWeight.Light
+                                )
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "mensagens...",
+                                    fontSize = 13.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Italic,
+                                    fontWeight = FontWeight.Thin
+                                )
+
+                            }
+                        }
+
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 2.dp, bottom = 32.dp)
+                                .height(0.8.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
+                        ) {}
+
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp)
+                            .clickable { controlNavigation.navigate("ChatComUsuario") },
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+
+                            Card(
+                                modifier = Modifier
+                                    .size(54.dp)
+                                    .clip(RoundedCornerShape(50.dp)),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = Color(0xFFD9D9D9)
+                                )
+                            ) {
+
+
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(12.dp)
+                                ) {
+
+                                    Image(
+                                        modifier = Modifier
+                                            .fillMaxSize(),
+                                        painter = painterResource(
+                                            id = R.drawable.cat
+                                        ),
+                                        contentDescription = "",
+                                        contentScale = ContentScale.Crop
+                                    )
+                                }
+                            }
+
+                            Column(
+                                modifier = Modifier
+                                    .padding(start = 16.dp)
+                            ) {
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "Prof Tamires Fernandes",
+                                    fontSize = 15.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Normal,
+                                    fontWeight = FontWeight.Light
+                                )
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "mensagens...",
+                                    fontSize = 13.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Italic,
+                                    fontWeight = FontWeight.Thin
+                                )
+
+                            }
+                        }
+
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 2.dp, bottom = 32.dp)
+                                .height(0.8.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
+                        ) {}
+
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp)
+                                .clickable { controlNavigation.navigate("ChatComUsuario") },
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+
+                            Card(
+                                modifier = Modifier
+                                    .size(54.dp)
+                                    .clip(RoundedCornerShape(50.dp)),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = Color(0xFFD9D9D9)
+                                )
+                            ) {
+
+
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(12.dp)
+                                ) {
+
+                                    Image(
+                                        modifier = Modifier
+                                            .fillMaxSize(),
+                                        painter = painterResource(
+                                            id = R.drawable.cat
+                                        ),
+                                        contentDescription = "",
+                                        contentScale = ContentScale.Crop
+                                    )
+                                }
+                            }
+
+                            Column(
+                                modifier = Modifier
+                                    .padding(start = 16.dp)
+                            ) {
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "Prof Gabriela Cavalcanti",
+                                    fontSize = 15.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Normal,
+                                    fontWeight = FontWeight.Light
+                                )
+
+                                Text(
+                                    modifier = Modifier,
+                                    text = "mensagens...",
+                                    fontSize = 13.sp,
+                                    color = Color(0xff201F4B),
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontStyle = FontStyle.Italic,
+                                    fontWeight = FontWeight.Thin
+                                )
+
+                            }
+                        }
+
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 2.dp, bottom = 32.dp)
+                                .height(0.8.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
+                        ) {}
+
                     }
                 }
             }
         })
 }
 
-@Composable
-fun ChatItem(name: String) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-
-        Card(
-            modifier = Modifier
-                .size(54.dp)
-                .clip(RoundedCornerShape(50.dp)),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFD9D9D9)
-            )
-        ) {
-
-
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(12.dp)
-            ) {
-
-                Image(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    painter = painterResource(
-                        id = R.drawable.cat
-                    ),
-                    contentDescription = "",
-                    contentScale = ContentScale.Crop
-                )
-            }
-        }
-
-        Column(
-            modifier = Modifier
-                .padding(start = 16.dp)
-        ) {
-
-            Text(
-                modifier = Modifier,
-                text = "Prof Nycolle Lima",
-                fontSize = 15.sp,
-                color = Color(0xff201F4B),
-                fontFamily = FontFamily.SansSerif,
-                fontStyle = FontStyle.Normal,
-                fontWeight = FontWeight.Light
-            )
-
-            Text(
-                modifier = Modifier,
-                text = "mensagens...",
-                fontSize = 13.sp,
-                color = Color(0xff201F4B),
-                fontFamily = FontFamily.SansSerif,
-                fontStyle = FontStyle.Italic,
-                fontWeight = FontWeight.Thin
-            )
-
-        }
-    }
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 2.dp, bottom = 32.dp)
-            .height(0.8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
-    ) {}
-}
 
 
 @Preview(showBackground = true)
