@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddTask
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -47,7 +48,7 @@ fun registeredSuccessfully(navigationController: NavHostController) {
         ) {
             Icon(
                 modifier = Modifier.size(180.dp),
-                imageVector = Icons.Default.CheckCircle,
+                imageVector = Icons.Default.AddTask,
                 contentDescription = "Confirmação de cadastro",
                 tint = Color(0xff8CE5C3)
             )
@@ -103,7 +104,7 @@ fun registeredSuccessfully(navigationController: NavHostController) {
     }
 }
 
-@Preview(showSystemUi = true, showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun registeredSuccessfullyPreview() {
     JENGTProVestTheme {

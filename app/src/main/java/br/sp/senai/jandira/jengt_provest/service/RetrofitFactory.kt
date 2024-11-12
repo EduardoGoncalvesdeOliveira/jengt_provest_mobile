@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.rickandmortyapi.service
 
 import br.sp.senai.jandira.jengt_provest.service.CadernoService
+import br.sp.senai.jandira.jengt_provest.service.MateriasService
 import br.sp.senai.jandira.jengt_provest.service.RedacaoService
 import br.sp.senai.jandira.jengt_provest.service.TemaRedacaoService
 import retrofit2.Retrofit
@@ -30,6 +31,10 @@ class RetrofitFactory {
 
     fun getCadernoAlunoService(): CadernoService {
         return retrofitFactory.create(CadernoService::class.java)
+    }
+
+    fun getCursosService(): MateriasService {
+        return retrofitFactory.create(MateriasService::class.java)
     }
 
     // FALTA IMPLEMENTAR ALGUNS AINDA

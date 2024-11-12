@@ -23,6 +23,7 @@ import br.sp.senai.jandira.jengt_provest.screens.home
 import br.sp.senai.jandira.jengt_provest.screens.listaCadernos
 import br.sp.senai.jandira.jengt_provest.screens.loginStudents
 import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
+import br.sp.senai.jandira.jengt_provest.screens.materias
 import br.sp.senai.jandira.jengt_provest.screens.notFound
 import br.sp.senai.jandira.jengt_provest.screens.redacao
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
@@ -89,6 +90,7 @@ class MainActivity : ComponentActivity() {
 
                         composable(route = "ListaDeCadernos") { listaCadernos(controlNavigation) }
 
+                        composable(route = "Materias") { materias(controlNavigation) }
 
 
 
