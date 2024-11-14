@@ -444,7 +444,7 @@ fun home(navigationController: NavHostController) {
                                     ) {
 
                                         Icon(
-                                            painter = painterResource(id = R.drawable.activity),
+                                            painter = painterResource(id = R.drawable.notes_icon),
                                             contentDescription = "Ícone de Anotação",
                                             tint = Color(0xff201F4B),
                                             modifier = Modifier

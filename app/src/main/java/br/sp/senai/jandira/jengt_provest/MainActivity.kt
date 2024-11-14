@@ -29,6 +29,7 @@ import br.sp.senai.jandira.jengt_provest.screens.redacao
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
 import br.sp.senai.jandira.jengt_provest.screens.signUpStudent
 import br.sp.senai.jandira.jengt_provest.screens.signUpTeacher
+import br.sp.senai.jandira.jengt_provest.screens.subMaterias
 import br.sp.senai.jandira.jengt_provest.screens.videoAula
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
@@ -92,8 +93,15 @@ class MainActivity : ComponentActivity() {
 
                         composable(route = "Materias") { materias(controlNavigation) }
 
+                        composable(route = "SubMaterias/{materiaNome}") { backStackEntry ->
+                            val materiaNome = backStackEntry.arguments?.getString("materiaNome") ?: ""
+                            subMaterias(controlNavigation, materiaNome = materiaNome)
+                        }
 
-
+                        composable(route = "SubMaterias/{materiaNome}") { backStackEntry ->
+                            val materiaNome = backStackEntry.arguments?.getString("materiaNome") ?: ""
+                            subMaterias(controlNavigation, materiaNome = materiaNome)
+                        }
                     }
                 }
             }

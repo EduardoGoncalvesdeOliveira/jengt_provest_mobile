@@ -62,6 +62,18 @@ fun materias(navigationController: NavHostController) {
     val retrofitFactory = RetrofitFactory()
     var MateriasService = retrofitFactory.getCursosService()
 
+    val colors = listOf(
+        Color(0xFFD98C8C),
+        Color(0xFFE1ACB2),
+        Color(0xFFF8D3A2),
+        Color(0xFFF2E29A),
+        Color(0xFFAED8A5),
+        Color(0xFFB4DAD5),
+        Color(0xFFA9BFE6),
+        Color(0xFFB2A5D8),
+        Color(0xCD7CD5B0),
+        )
+
     LaunchedEffect(Unit) {
 
         MateriasService.getAllCursos().enqueue(object : Callback<CursoResponse> {
@@ -169,14 +181,19 @@ fun materias(navigationController: NavHostController) {
                     ){
                         items(cursos) { curso ->
 
-                            SubjectButton("${curso.nome}", Color(0xFFD98C8C))
-                            SubjectButton("${curso.nome}", Color(0xFFE1ACB2))
-                            SubjectButton("${curso.nome}", Color(0xFFF8D3A2))
-                            SubjectButton("${curso.nome}", Color(0xFFF2E29A))
-                            SubjectButton("${curso.nome}", Color(0xFFAED8A5))
-                            SubjectButton("${curso.nome}", Color(0xFFB4DAD5))
-                            SubjectButton("${curso.nome}", Color(0xFFA9BFE6))
-                            SubjectButton("${curso.nome}", Color(0xFFB2A5D8))
+//                            SubjectButton("${curso.nome}", Color(0xFFD98C8C))
+//                            SubjectButton("${curso.nome}", Color(0xFFE1ACB2))
+//                            SubjectButton("${curso.nome}", Color(0xFFF8D3A2))
+//                            SubjectButton("${curso.nome}", Color(0xFFF2E29A))
+//                            SubjectButton("${curso.nome}", Color(0xFFAED8A5))
+//                            SubjectButton("${curso.nome}", Color(0xFFB4DAD5))
+//                            SubjectButton("${curso.nome}", Color(0xFFA9BFE6))
+//                            SubjectButton("${curso.nome}", Color(0xFFB2A5D8))
+
+                            cursos.forEachIndexed { index, curso ->
+                                val color = colors[index % colors.size]
+                                SubjectButton("${curso.nome}", color, navigationController, curso)
+                            }
 
                         }
 
@@ -188,9 +205,9 @@ fun materias(navigationController: NavHostController) {
 }
 
 @Composable
-fun SubjectButton(subjectName: String, backgroundColor: Color) {
+fun SubjectButton(subjectName: String, backgroundColor: Color, navigationController: NavHostController, curso: Curso) {
     Button(
-        onClick = {  },
+        onClick = { navigationController.navigate("SubMaterias/${curso.nome}")},
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
@@ -205,6 +222,8 @@ fun SubjectButton(subjectName: String, backgroundColor: Color) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
+                modifier = Modifier
+                    .padding(end = 24.dp),
                 text = subjectName,
                 color = Color(0xff201F4B),
                 fontSize = 18.sp,

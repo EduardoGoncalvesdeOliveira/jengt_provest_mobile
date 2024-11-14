@@ -13,3 +13,7 @@ data class Disciplina(
     val id: Int = 0,
     val nome: String = ""
 )
+
+data class DisciplinaResponse(
+    val disciplinas: List<Disciplina>
+)
