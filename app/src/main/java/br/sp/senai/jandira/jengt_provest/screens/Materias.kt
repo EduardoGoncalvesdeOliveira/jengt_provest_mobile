@@ -72,7 +72,7 @@ fun materias(navigationController: NavHostController) {
         Color(0xFFA9BFE6),
         Color(0xFFB2A5D8),
         Color(0xCD7CD5B0),
-        )
+    )
 
     LaunchedEffect(Unit) {
 
@@ -92,7 +92,7 @@ fun materias(navigationController: NavHostController) {
         })
     }
 
-        Scaffold(
+    Scaffold(
         bottomBar = {
             BottomAppBar(
                 modifier = Modifier
@@ -175,10 +175,11 @@ fun materias(navigationController: NavHostController) {
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    LazyColumn (modifier = Modifier
-                        .padding(4.dp)
-                        .fillMaxSize()
-                    ){
+                    LazyColumn(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .fillMaxSize()
+                    ) {
                         items(cursos) { curso ->
 
 //                            SubjectButton("${curso.nome}", Color(0xFFD98C8C))
@@ -205,9 +206,14 @@ fun materias(navigationController: NavHostController) {
 }
 
 @Composable
-fun SubjectButton(subjectName: String, backgroundColor: Color, navigationController: NavHostController, curso: Curso) {
+fun SubjectButton(
+    subjectName: String,
+    backgroundColor: Color,
+    navigationController: NavHostController,
+    curso: Curso
+) {
     Button(
-        onClick = { navigationController.navigate("SubMaterias/${curso.nome}")},
+        onClick = { navigationController.navigate("SubMaterias/${curso.nome}") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
