@@ -181,7 +181,6 @@ fun listaCadernos(controlNavigation: NavHostController) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
-                        Log.e("kd a porra desse krlh de erro", "${cadernos}")
                         LazyColumn(
                             modifier = Modifier
                                 .padding(4.dp)

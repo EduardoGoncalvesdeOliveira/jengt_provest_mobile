@@ -98,10 +98,6 @@ class MainActivity : ComponentActivity() {
                             subMaterias(controlNavigation, materiaNome = materiaNome)
                         }
 
-                        composable(route = "SubMaterias/{materiaNome}") { backStackEntry ->
-                            val materiaNome = backStackEntry.arguments?.getString("materiaNome") ?: ""
-                            subMaterias(controlNavigation, materiaNome = materiaNome)
-                        }
                     }
                 }
             }

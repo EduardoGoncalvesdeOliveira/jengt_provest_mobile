@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitFactory {
 
-    private val BASE_URL = "https://jengt-provest-backend.onrender.com/v1/jengt_provest/"
+    private val BASE_URL = "https://provest-ehefgcbyg0g2d6gy.brazilsouth-01.azurewebsites.net/v1/jengt_provest/"
 
     private val retrofitFactory = Retrofit
         .Builder()

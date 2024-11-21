@@ -1,6 +1,5 @@
 package br.sp.senai.jandira.jengt_provest.screens
 
-import android.preference.PreferenceActivity
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,15 +19,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,13 +46,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.rickandmortyapi.service.RetrofitFactory
 import br.sp.senai.jandira.jengt_provest.R
 import br.sp.senai.jandira.jengt_provest.model.Curso
-import br.sp.senai.jandira.jengt_provest.model.CursoResponse
 import br.sp.senai.jandira.jengt_provest.model.DisciplinaResponse
-import br.sp.senai.jandira.jengt_provest.service.MateriasService
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 import retrofit2.Call
 import retrofit2.Callback
@@ -157,8 +150,7 @@ fun subMaterias(navigationController: NavHostController, materiaNome: String) {
                                 contentDescription = "botão de seta",
                                 modifier = Modifier
                                     .size(32.dp)
-                                    .clickable {
-                                    },
+                                    .clickable { navigationController.navigate("Materias") },
                                 tint = Color(0xFF201F4B)
                             )
                         }
@@ -194,7 +186,7 @@ fun subMaterias(navigationController: NavHostController, materiaNome: String) {
                                 .width(370.dp)
                                 .height(55.dp),
                             shape = RoundedCornerShape(100.dp),
-                            colors = ButtonDefaults.buttonColors(Color(0x991D6BC7))
+                            colors = ButtonDefaults.buttonColors(Color.White)
                         ) {
 
                             Row(
