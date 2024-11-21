@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">JENGT-ProVest</string>
+    <string name="app_name">ProVest</string>
+    <string name="provest_name">ProVest</string>
+
 </resources>
