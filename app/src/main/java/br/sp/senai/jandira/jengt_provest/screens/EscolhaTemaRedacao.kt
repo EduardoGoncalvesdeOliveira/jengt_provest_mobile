@@ -153,7 +153,7 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                                 color = Color(0xff201F4B),
                                 shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
                             )
-                            .height(182.dp)
+                            .height(150.dp)
                     ) {
                         Column(
                             modifier = Modifier.fillMaxSize(),

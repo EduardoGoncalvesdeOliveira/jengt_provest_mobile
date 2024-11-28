@@ -59,9 +59,10 @@ import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun cadernoDoAluno(controlNavigation: NavHostController) {
-    Scaffold(
+fun instrucoesRedacao(controlNavigation: NavHostController) {
 
+
+    Scaffold(
         bottomBar = {
             BottomAppBar(
                 modifier = Modifier
@@ -89,8 +90,7 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                             .padding(bottom = 0.dp)
                             .size(40.dp)
                             .clickable { controlNavigation.navigate("Home") },
-
-                        )
+                    )
 
                     Icon(
                         painter = painterResource(id = R.drawable.chat_icon),
@@ -99,8 +99,7 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                             .padding(top = 2.dp)
                             .size(34.dp)
                             .clickable { controlNavigation.navigate("Chats") },
-
-                        )
+                    )
                 }
             }
         },
@@ -116,25 +115,22 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                             .fillMaxWidth()
                             .background(
                                 color = Color(0xff201F4B),
-                                shape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp)
+                                shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
                             )
-                            .height(75.dp)
-                    )
-                    {
+                            .height(150.dp)
+                    ) {
                         Column(
-                            modifier = Modifier
-                                .fillMaxSize(),
+                            modifier = Modifier.fillMaxSize(),
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-
                             Text(
-                                text = "Caderno do Aluno".toUpperCase(),
+                                text = "Redações".toUpperCase(),
                                 color = Color(0xffDEFEA0),
-                                fontSize = 28.sp,
+                                fontSize = 32.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 fontStyle = FontStyle.Normal,
-                                fontWeight = FontWeight.W300
+                                fontWeight = FontWeight.Normal
                             )
                         }
                     }
@@ -153,95 +149,43 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
 
-                            Button(
-                                onClick = { },
+                            Card(
                                 modifier = Modifier
-                                    .size(width = 142.dp, height = 100.dp),
-                                shape = RoundedCornerShape(8.dp),
-                                colors = ButtonDefaults.buttonColors(Color(0xffC6E6A3))
+                                    .height(100.dp)
+                                    .fillMaxWidth()
+                                    .border(
+                                        width = 2.dp, // Espessura da borda
+                                        color = Color(0xffD4A4E2),
+                                        shape = RoundedCornerShape(8.dp)
+                                    ),
+                                colors = CardDefaults.cardColors(Color.Transparent)
                             ) {
 
                                 Row(
                                     modifier = Modifier
-                                        .fillMaxSize(),
-                                    horizontalArrangement = Arrangement.SpaceAround,
+                                        .fillMaxSize()
+                                        .padding(start = 20.dp)
+                                        .clickable { controlNavigation.navigate("EscolhaTemaRedacao") },
+                                    horizontalArrangement = Arrangement.Start,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
-                                        text = "Salvar",
+                                        text = "Escolha seu tema",
                                         fontSize = 20.sp,
                                         fontFamily = FontFamily.Default,
-                                        fontWeight = FontWeight.Bold,
+                                        fontWeight = FontWeight.Light,
                                         fontStyle = FontStyle.Normal,
                                         color = Color(0xff201F4B)
                                     )
 
                                     Icon(
-                                        imageVector = Icons.Default.Save,
-                                        contentDescription = "Atividades",
-                                        tint = Color(0xff201F4B),
+                                        painter = painterResource(id = R.drawable.notebook_icon),
+                                        contentDescription = "Anotações",
                                         modifier = Modifier
-                                            .size(26.dp)
+                                            .padding(top = 2.dp)
+                                            .size(34.dp)
+                                            .clickable { controlNavigation.navigate("CadernoDoAluno") },
                                     )
-                                }
-                            }
-
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxHeight()
-                                    .width(160.dp),
-                                horizontalArrangement = Arrangement.SpaceAround
-                            ) {
-                                Button(
-                                    onClick = {
-                                        controlNavigation.navigate("ListaDeCadernos")
-                                    },
-                                    modifier = Modifier
-                                        .size(width = 70.dp, height = 100.dp),
-                                    shape = RoundedCornerShape(8.dp),
-                                    colors = ButtonDefaults.buttonColors(Color(0xffE4E2ED))
-                                ) {
-
-                                    Row(
-                                        modifier = Modifier
-                                            .fillMaxSize(),
-                                        horizontalArrangement = Arrangement.SpaceAround,
-                                        verticalAlignment = Alignment.CenterVertically
-                                    ) {
-
-                                        Icon(
-                                            imageVector = Icons.Default.CollectionsBookmark,
-                                            contentDescription = "Atividades",
-                                            tint = Color(0xff201F4B),
-                                            modifier = Modifier
-                                                .size(26.dp)
-                                        )
-                                    }
-                                }
-
-                                Button(
-                                    onClick = { },
-                                    modifier = Modifier
-                                        .size(width = 70.dp, height = 100.dp),
-                                    shape = RoundedCornerShape(8.dp),
-                                    colors = ButtonDefaults.buttonColors(Color(0xffE4E2ED))
-                                ) {
-
-                                    Row(
-                                        modifier = Modifier
-                                            .fillMaxSize(),
-                                        horizontalArrangement = Arrangement.SpaceAround,
-                                        verticalAlignment = Alignment.CenterVertically
-                                    ) {
-
-                                        Icon(
-                                            imageVector = Icons.Default.Add,
-                                            contentDescription = "Atividades",
-                                            tint = Color(0xff201F4B),
-                                            modifier = Modifier
-                                                .size(26.dp)
-                                        )
-                                    }
                                 }
                             }
                         }
@@ -316,7 +260,13 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
                                 TextField(
                                     value = text,
                                     onValueChange = { text = it },
-                                    label = { Text("Seu texto aqui") },
+                                    label = { Text(
+                                        text = "Escolha seu tema",
+                                        fontSize = 20.sp,
+                                        fontFamily = FontFamily.Default,
+                                        fontWeight = FontWeight.Light,
+                                        fontStyle = FontStyle.Normal,
+                                        color = Color(0xff201F4B)) },
                                     placeholder = { },
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -342,8 +292,8 @@ fun cadernoDoAluno(controlNavigation: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun cadernoDoAlunoPreview() {
+fun instrucoesRedacaoPreview() {
     JENGTProVestTheme {
-        cadernoDoAluno(controlNavigation = rememberNavController())
+        instrucoesRedacao(controlNavigation = rememberNavController())
     }
 }
