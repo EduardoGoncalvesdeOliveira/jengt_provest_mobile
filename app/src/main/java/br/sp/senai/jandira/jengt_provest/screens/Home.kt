@@ -296,7 +296,7 @@ fun home(navigationController: NavHostController) {
                                             Box(
                                                 modifier = Modifier
                                                     .fillMaxSize()
-                                                    .clickable { navigationController.navigate("EscolhaTemaRedacao") },
+                                                    .clickable { navigationController.navigate("InstrucoesRedacao") },
                                             ) {
 
                                                 Image(

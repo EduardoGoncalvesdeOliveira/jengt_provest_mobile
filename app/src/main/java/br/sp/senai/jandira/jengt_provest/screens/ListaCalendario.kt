@@ -67,7 +67,7 @@ import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun instrucoesRedacao(controlNavigation: NavHostController) {
+fun listaCalendario(controlNavigation: NavHostController) {
 
 
     Scaffold(
@@ -125,20 +125,33 @@ fun instrucoesRedacao(controlNavigation: NavHostController) {
                                 color = Color(0xff201F4B),
                                 shape = RoundedCornerShape(bottomStart = 14.dp, bottomEnd = 14.dp)
                             )
-                            .height(150.dp)
+                            .height(75.dp)
                     ) {
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
+                        Row(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(horizontal = 24.dp),
+                            horizontalArrangement = Arrangement.Start,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                text = "Redações".toUpperCase(),
-                                color = Color(0xffDEFEA0),
-                                fontSize = 32.sp,
+                                text = "Dezembro, 10",
+                                color = Color(0xffBCB3DF),
+                                fontSize = 18.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 fontStyle = FontStyle.Normal,
-                                fontWeight = FontWeight.Light
+                                fontWeight = FontWeight.Bold
+                            )
+
+                            Spacer(modifier = Modifier
+                                .width(180.dp))
+                            Text(
+                                text = "2024",
+                                color = Color(0xffC6E6A3),
+                                fontSize = 18.sp,
+                                fontFamily = FontFamily.SansSerif,
+                                fontStyle = FontStyle.Normal,
+                                fontWeight = FontWeight.Bold
                             )
                         }
                     }
@@ -270,8 +283,8 @@ fun instrucoesRedacao(controlNavigation: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun instrucoesRedacaoPreview() {
+fun listaCalendarioPreview() {
     JENGTProVestTheme {
-        instrucoesRedacao(controlNavigation = rememberNavController())
+        listaCalendario(controlNavigation = rememberNavController())
     }
 }

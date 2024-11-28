@@ -20,6 +20,7 @@ import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 //import br.sp.senai.jandira.jengt_provest.screens.escolhaTemaRedacao
 import br.sp.senai.jandira.jengt_provest.screens.forgotPassword
 import br.sp.senai.jandira.jengt_provest.screens.home
+import br.sp.senai.jandira.jengt_provest.screens.instrucoesRedacao
 import br.sp.senai.jandira.jengt_provest.screens.listaCadernos
 import br.sp.senai.jandira.jengt_provest.screens.loginStudents
 import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
@@ -97,6 +98,8 @@ class MainActivity : ComponentActivity() {
                             val materiaNome = backStackEntry.arguments?.getString("materiaNome") ?: ""
                             subMaterias(controlNavigation, materiaNome = materiaNome)
                         }
+
+                        composable(route = "instrucoesRedacao") { instrucoesRedacao(controlNavigation) }
 
                     }
                 }
