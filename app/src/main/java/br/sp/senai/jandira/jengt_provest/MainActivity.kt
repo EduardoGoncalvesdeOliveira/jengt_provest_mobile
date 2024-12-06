@@ -34,6 +34,7 @@ import br.sp.senai.jandira.jengt_provest.screens.signUpTeacher
 import br.sp.senai.jandira.jengt_provest.screens.subMaterias
 import br.sp.senai.jandira.jengt_provest.screens.videoAula
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
+import calendar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val controlNavigation = rememberNavController()
-                    NavHost(navController = controlNavigation, startDestination = "Home") {
+                    NavHost(navController = controlNavigation, startDestination = "Initial") {
 
                         composable(route = "Initial") { Initial(controlNavigation) }
 
@@ -84,6 +85,8 @@ class MainActivity : ComponentActivity() {
                                 controlNavigation
                             )
                         }
+
+                        composable(route = "Calendar") { calendar(controlNavigation) }
 
                         composable(route = "NotFound") { notFound(controlNavigation) }
 

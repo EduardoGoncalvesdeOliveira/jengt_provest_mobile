@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -171,6 +172,7 @@ fun loginStudents(controlNavigation: NavHostController) {
                     onValueChange = {
                         passwordState.value = it
                     },
+                    visualTransformation = PasswordVisualTransformation(),
                     maxLines = 1,
                     shape = RoundedCornerShape(50.dp),
                     label = {
@@ -209,7 +211,7 @@ fun loginStudents(controlNavigation: NavHostController) {
 
                     Button(
                         onClick = {
-                            if (emailState.value == "qwe" && passwordState.value == "123") {
+                            if (emailState.value == "fernanda.alves@gmail.com" && passwordState.value == "Fern#456") {
                                 mensagemErro.value = ""
                                 controlNavigation.navigate("Home")
                             } else {
@@ -301,7 +303,7 @@ fun loginStudents(controlNavigation: NavHostController) {
                         )
                         Text(
                             modifier = Modifier
-                                .clickable { controlNavigation.navigate("SignUpTeacher") },
+                                .clickable { controlNavigation.navigate("SignUpStudent") },
                             text = "Criar conta", fontSize = 14.sp,
                             fontFamily = FontFamily.Default,
                             fontWeight = FontWeight.Normal,

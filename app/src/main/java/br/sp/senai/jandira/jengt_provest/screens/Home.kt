@@ -360,7 +360,8 @@ fun home(navigationController: NavHostController) {
                                     modifier = Modifier
                                         .height(100.dp)
                                         .fillMaxWidth()
-                                        .padding(horizontal = 9.dp),
+                                        .padding(horizontal = 9.dp)
+                                        .clickable { navigationController.navigate("Calendar") },
                                     colors = CardDefaults.cardColors(Color(0x00FFFFFF)),
                                     border = BorderStroke(4.dp, Color(0xff201F4B))
                                 ) {

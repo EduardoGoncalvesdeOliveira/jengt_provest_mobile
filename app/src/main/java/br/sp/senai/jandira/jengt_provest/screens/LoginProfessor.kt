@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -171,6 +172,7 @@ fun loginTeachers(controlNavigation: NavHostController) {
                     onValueChange = {
                         passwordState.value = it
                     },
+                    visualTransformation = PasswordVisualTransformation(),
                     maxLines = 1,
                     shape = RoundedCornerShape(50.dp),
                     label = {

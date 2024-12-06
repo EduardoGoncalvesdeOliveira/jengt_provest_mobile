@@ -106,7 +106,7 @@ fun Initial(navigationController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(
-                        onClick = { navigationController.navigate("SignUpStudent") },
+                        onClick = { navigationController.navigate("LoginStudent") },
                         modifier = Modifier
                             .size(height = 70.dp, width = 250.dp)
                             .padding(vertical = 12.dp),
@@ -121,7 +121,7 @@ fun Initial(navigationController: NavHostController) {
                     }
 
                     Button(
-                        onClick = { navigationController.navigate("SignUpTeacher") },
+                        onClick = { navigationController.navigate("LoginTeacher") },
                         modifier = Modifier
                             .size(height = 70.dp, width = 250.dp)
                             .padding(vertical = 12.dp),
