@@ -11,18 +11,29 @@ class RetrofitFactory {
 
     private val BASE_URL = "https://provest-ehefgcbyg0g2d6gy.brazilsouth-01.azurewebsites.net/v1/jengt_provest/"
 
+    private val BASE_URL_RENDER = "https://jengt-provest-backend.onrender.com/v1/jengt_provest/"
+
     private val retrofitFactory = Retrofit
         .Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+
+
+    private val retrofitFactory_RENDER = Retrofit
+        .Builder()
+        .baseUrl(BASE_URL_RENDER)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+
     fun getAlunoService(): AlunoService {
         return retrofitFactory.create(AlunoService::class.java)
     }
 
     fun getTemaRedacaoService(): TemaRedacaoService {
-        return retrofitFactory.create(TemaRedacaoService::class.java)
+        return retrofitFactory_RENDER.create(TemaRedacaoService::class.java)
     }
 
     fun getRedacaoService(): RedacaoService {

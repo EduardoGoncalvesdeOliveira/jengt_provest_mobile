@@ -191,40 +191,32 @@ fun escolhaTemaRedacao(navigationController: NavHostController) {
                                 .fillMaxSize()
                         ) {
                             items(temas) { tema ->
-
+                                val nome = tema.nome ?: "Nome indisponível"
+                                val descricao = tema.descricao ?: "Descrição não divulgada"
 
                                 Card(
                                     modifier = Modifier
                                         .padding(8.dp)
                                         .fillMaxWidth()
                                         .clickable {
-                                            navigationController.navigate("Redacao/${tema.nome}")
+                                            navigationController.navigate("Redacao/${nome}")
                                         },
                                     elevation = CardDefaults.elevatedCardElevation(4.dp),
-                                    colors = CardDefaults.cardColors(
-                                        containerColor = Color(0xff201F4B)  // Define a cor de fundo do Card
-                                    )
+                                    colors = CardDefaults.cardColors(containerColor = Color(0xff201F4B))
                                 ) {
                                     Column(modifier = Modifier.padding(14.dp)) {
-
                                         Text(
-                                            text = "'${tema.nome}'",
+                                            text = "'${nome}'",
                                             color = Color(0xffFFFFFF),
                                             fontSize = 16.sp,
-                                            fontFamily = FontFamily.SansSerif,
-                                            fontStyle = FontStyle.Normal,
                                             fontWeight = FontWeight.Bold
                                         )
-
                                         Spacer(modifier = Modifier.height(4.dp))
-
                                         Text(
-                                            text = tema.descricao,
+                                            text = "${descricao}",
                                             color = Color(0xffFFFFFF),
                                             fontSize = 12.sp,
-                                            fontFamily = FontFamily.SansSerif,
-                                            fontStyle = FontStyle.Italic,
-                                            fontWeight = FontWeight.Normal
+                                            fontStyle = FontStyle.Italic
                                         )
                                     }
                                 }

@@ -148,7 +148,7 @@ fun redacao(controlNavigation: NavHostController, tituloTema: String) {
                     ) {
 
                         Button(
-                            onClick = { },
+                            onClick = { controlNavigation.navigate("RedacaoEnviada") },
                             modifier = Modifier
                                 .size(width = 225.dp, height = 100.dp),
                             shape = RoundedCornerShape(8.dp),

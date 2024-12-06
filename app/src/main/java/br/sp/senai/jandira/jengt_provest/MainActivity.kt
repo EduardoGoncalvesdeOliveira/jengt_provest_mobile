@@ -27,6 +27,7 @@ import br.sp.senai.jandira.jengt_provest.screens.loginTeachers
 import br.sp.senai.jandira.jengt_provest.screens.materias
 import br.sp.senai.jandira.jengt_provest.screens.notFound
 import br.sp.senai.jandira.jengt_provest.screens.redacao
+import br.sp.senai.jandira.jengt_provest.screens.redacaoEnviada
 import br.sp.senai.jandira.jengt_provest.screens.registeredSuccessfully
 import br.sp.senai.jandira.jengt_provest.screens.signUpStudent
 import br.sp.senai.jandira.jengt_provest.screens.signUpTeacher
@@ -85,6 +86,8 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable(route = "NotFound") { notFound(controlNavigation) }
+
+                        composable(route = "RedacaoEnviada") { redacaoEnviada(controlNavigation) }
 
                         composable(route = "Chats") { chats(controlNavigation) }
 

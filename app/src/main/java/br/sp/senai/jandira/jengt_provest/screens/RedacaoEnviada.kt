@@ -32,7 +32,8 @@ import androidx.navigation.compose.rememberNavController
 import br.sp.senai.jandira.jengt_provest.ui.theme.JENGTProVestTheme
 
 @Composable
-fun registeredSuccessfully(navigationController: NavHostController) {
+fun redacaoEnviada(navigationController: NavHostController) {
+
 
     Surface(
         modifier = Modifier
@@ -53,12 +54,25 @@ fun registeredSuccessfully(navigationController: NavHostController) {
                 tint = Color(0xff8CE5C3)
             )
 
+            Spacer(modifier = Modifier.height(75.dp))
+
+
             Text(
                 modifier = Modifier.padding(top = 20.dp),
-                text = "CADASTRADO COM SUCESSO !",
+                text = "Redação enviada !".toUpperCase(),
                 color = Color(0xffDEFEA0),
                 fontSize = 24.sp
             )
+
+
+
+            Text(
+                modifier = Modifier.padding(top = 20.dp),
+                text = "Aguarde nossa devolutiva".toUpperCase(),
+                color = Color(0xffDEFEA0),
+                fontSize = 24.sp
+            )
+
             Spacer(modifier = Modifier.height(200.dp))
 
             Column() {
@@ -102,13 +116,12 @@ fun registeredSuccessfully(navigationController: NavHostController) {
 
 
     }
-
-}
+    }
 
 @Preview(showBackground = true)
 @Composable
-fun registeredSuccessfullyPreview() {
+fun redacaoEnviadaPreview() {
     JENGTProVestTheme {
-        registeredSuccessfully(navigationController = rememberNavController())
+        redacaoEnviada(navigationController = rememberNavController())
     }
 }
